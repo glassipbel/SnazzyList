@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SnazzyCollectionViewDataSource Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/SnazzyCollectionViewDataSource" class="dashAnchor"></a>
+    <a title="SnazzyCollectionViewDataSource Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SnazzyCollectionViewDataSource Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/SnazzyCollectionViewDataSource.html">SnazzyCollectionViewDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SnazzyCollectionViewDelegate.html">SnazzyCollectionViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SnazzyTableViewDataSource.html">SnazzyTableViewDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SnazzyTableViewDelegate.html">SnazzyTableViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyCellOriginType.html">SnazzyCellOriginType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyCollectionCellType.html">SnazzyCollectionCellType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyCollectionSizingType.html">SnazzyCollectionSizingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyLocationPosition.html">SnazzyLocationPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyTableCellType.html">SnazzyTableCellType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SnazzyTableSizingType.html">SnazzyTableSizingType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UICollectionViewCell.html">UICollectionViewCell</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyCollectionCellProtocol.html">SnazzyCollectionCellProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyCollectionCellSelfSizingProtocol.html">SnazzyCollectionCellSelfSizingProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyCollectionFooterSelfSizingProtocol.html">SnazzyCollectionFooterSelfSizingProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyCollectionHeaderSelfSizingProtocol.html">SnazzyCollectionHeaderSelfSizingProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyCollectionReusableProtocol.html">SnazzyCollectionReusableProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyTableCellProtocol.html">SnazzyTableCellProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyTableFooterProtocol.html">SnazzyTableFooterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SnazzyTableHeaderProtocol.html">SnazzyTableHeaderProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SnazzyTableCellConfigurator.html">SnazzyTableCellConfigurator</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SnazzyCollectionViewDataSource</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p>An instance of <code>SnazzyCollectionViewDataSource</code> is responsable for responding the methods that the collection view neeeds in order to display all the cells properly. You must have this instance in your desired <code>UIViewController</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_"></a>
+                    <a name="//apple_ref/swift/Property/configFiles" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All the configFiles are going to be stored in this property.
+Most of the time you would use the convinience methods to insert and delete cells from the <code>UICollectionView</code> but in some cases you may need to access some of the configFiles stored in this property, that&rsquo;s why it&rsquo;s pubic.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">configFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSourcecFT14collectionViewCSo16UICollectionView11configFilesGSaVS_32SnazzyCollectionCellConfigurator__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(collectionView:configFiles:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSourcecFT14collectionViewCSo16UICollectionView11configFilesGSaVS_32SnazzyCollectionCellConfigurator__S0_">init(collectionView:configFiles:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new instance of the <code>SnazzyCollectionViewDataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="nv">configFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>collectionView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UICollectionView</code> that is gonna be handled by this class.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFiles</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The initial configFiles that are gonna be shown in the <code>collectionView</code> at the beginning.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An Instance of <code>SnazzyCollectionViewDataSource</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView13cellForItemAtV10Foundation9IndexPath_CSo20UICollectionViewCell"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:cellForItemAt:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView13cellForItemAtV10Foundation9IndexPath_CSo20UICollectionViewCell">collectionView(_:cellForItemAt:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Internal Method for correct operation of <code>SnazzyCollectionViewDataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">cellForItemAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UICollectionViewCell</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource16numberOfSectionsFT2inCSo16UICollectionView_Si"></a>
+                    <a name="//apple_ref/swift/Method/numberOfSections(in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource16numberOfSectionsFT2inCSo16UICollectionView_Si">numberOfSections(in:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Internal Method for correct operation of <code>SnazzyCollectionViewDataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">numberOfSections</span><span class="p">(</span><span class="k">in</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView22numberOfItemsInSectionSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:numberOfItemsInSection:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView22numberOfItemsInSectionSi_Si">collectionView(_:numberOfItemsInSection:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Internal Method for correct operation of <code>SnazzyCollectionViewDataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">numberOfItemsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView33viewForSupplementaryElementOfKindSS2atV10Foundation9IndexPath_CSo24UICollectionReusableView"></a>
+                    <a name="//apple_ref/swift/Method/collectionView(_:viewForSupplementaryElementOfKind:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource14collectionViewFTCSo16UICollectionView33viewForSupplementaryElementOfKindSS2atV10Foundation9IndexPath_CSo24UICollectionReusableView">collectionView(_:viewForSupplementaryElementOfKind:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Internal Method for correct operation of <code>SnazzyCollectionViewDataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">collectionView</span><span class="p">(</span><span class="n">_</span> <span class="nv">collectionView</span><span class="p">:</span> <span class="kt">UICollectionView</span><span class="p">,</span> <span class="n">viewForSupplementaryElementOfKind</span> <span class="nv">kind</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">at</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UICollectionReusableView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource6reloadFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/reload()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource6reloadFT_T_">reload()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT7sectionSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/reloadAt(section:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT7sectionSi_T_">reloadAt(section:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource16reloadAtSectionsFT8indexSetV10Foundation8IndexSet_T_"></a>
+                    <a name="//apple_ref/swift/Method/reloadAtSections(indexSet:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource16reloadAtSectionsFT8indexSetV10Foundation8IndexSet_T_">reloadAtSections(indexSet:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT10indexPathsGSaV10Foundation9IndexPath__T_"></a>
+                    <a name="//apple_ref/swift/Method/reloadAt(indexPaths:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT10indexPathsGSaV10Foundation9IndexPath__T_">reloadAt(indexPaths:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT9indexPathV10Foundation9IndexPath_T_"></a>
+                    <a name="//apple_ref/swift/Method/reloadAt(indexPath:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource8reloadAtFT9indexPathV10Foundation9IndexPath_T_">reloadAt(indexPath:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource9deleteRowFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteRow(by:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource9deleteRowFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_">deleteRow(by:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource15deleteAllRowsAtFT7sectionSi10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteAllRowsAt(section:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource15deleteAllRowsAtFT7sectionSi10completionGSqFT_T___T_">deleteAllRowsAt(section:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource6deleteFT2atSi9andInsertGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/delete(at:andInsert:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource6deleteFT2atSi9andInsertGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_">delete(at:andInsert:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource14deleteSectionsFT16greaterOrEqualToSi9andInsertGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteSections(greaterOrEqualTo:andInsert:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource14deleteSectionsFT16greaterOrEqualToSi9andInsertGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_">deleteSections(greaterOrEqualTo:andInsert:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertRowsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertRows(configFiles:maxSectionInsertedOpt:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertRowsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_">insertRows(configFiles:maxSectionInsertedOpt:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource19insertRowAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertRowAtLocation(locationPosition:filter:configFile:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource19insertRowAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_">insertRowAtLocation(locationPosition:filter:configFile:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource28insertRowsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator__T_"></a>
+                    <a name="//apple_ref/swift/Method/insertRowsAtTopOfEachSection(configFiles:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource28insertRowsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator__T_">insertRowsAtTopOfEachSection(configFiles:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource23insertRowAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator_T_"></a>
+                    <a name="//apple_ref/swift/Method/insertRowAtTopOfSection(configFile:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource23insertRowAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator_T_">insertRowAtTopOfSection(configFile:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource9insertRowFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertRow(configFile:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource9insertRowFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_">insertRow(configFile:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource12getIndexPathFT2byFVS_32SnazzyCollectionCellConfiguratorSb_GSqV10Foundation9IndexPath_"></a>
+                    <a name="//apple_ref/swift/Method/getIndexPath(by:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource12getIndexPathFT2byFVS_32SnazzyCollectionCellConfiguratorSb_GSqV10Foundation9IndexPath_">getIndexPath(by:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-11)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

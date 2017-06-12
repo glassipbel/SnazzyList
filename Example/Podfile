@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SnazzyList_Example' do
+  pod 'SnazzyList', :path => '../'
+
+  target 'SnazzyList_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
