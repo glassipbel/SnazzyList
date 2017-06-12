@@ -265,13 +265,36 @@ extension SnazzyCollectionViewDataSource {
             
             self.collectionView.deleteItems(at: indexPaths)
             self.configFiles = self.configFiles.filter { !($0.section == section && $0.typeCell == .cell) }
-            self.insertRows(configFiles: configFiles, maxSectionInsertedOpt: maxSectionInsertedOpt)
+            self.insertCells(configFiles: configFiles, maxSectionInsertedOpt: maxSectionInsertedOpt)
             
         }) { completed in
             completion?()
         }
     }
     
+    /**
+     This method will delete all cells that are equal or greather than the specified section. Then it will insert all the configFiles specified at the `configFiles` parameter.
+     The configFiles don't need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.
+     For example if you insert these configFiles for sections:
+     [ConfigFile 1: Section 1]
+     [ConfigFile 2: Section 2]
+     [ConfigFile 3: Section 2]
+     [ConfigFile 4: Section 1]
+     [ConfigFile 5: Section 3]
+     [ConfigFile 6: Section 1]
+     Then the order of the cells are going to be:
+     ConfigFile 1
+     ConfigFile 4
+     ConfigFile 6
+     ConfigFile 2
+     ConfigFile 3
+     ConfigFile 5
+     
+     The deletion and the insertion are going to happen at the same batch as you would expect.
+     - parameter greaterOrEqualTo: The section for deleting all the cells.
+     - parameter andInsert: The array of configFiles to be inserted.
+     - parameter completion: Callback that will be called when the deletion has been applied.
+     */
     public func deleteSections(greaterOrEqualTo section: Int, andInsert configFiles: [SnazzyCollectionCellConfigurator], completion: (()->())? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section >= section && $0.typeCell == .cell }
         
@@ -310,14 +333,34 @@ extension SnazzyCollectionViewDataSource {
             
             self.collectionView.deleteItems(at: indexPaths)
             self.configFiles = self.configFiles.filter { !($0.section >= section && $0.typeCell == .cell) }
-            self.insertRows(configFiles: configFiles, maxSectionInsertedOpt: sectionToDeleteFrom, completion: completion)
+            self.insertCells(configFiles: configFiles, maxSectionInsertedOpt: sectionToDeleteFrom, completion: completion)
             
-        }) { completed in
-            //completion?()
-        }
+        }) { _ in }
     }
 
-    public func insertRows(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator], maxSectionInsertedOpt: Int? = nil, completion: (()->())? = nil) {
+    /**
+     This method will insert all the cells specified at `configFiles`.
+     The configFiles don't need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.
+     For example if you insert these configFiles for sections:
+     [ConfigFile 1: Section 1]
+     [ConfigFile 2: Section 2]
+     [ConfigFile 3: Section 2]
+     [ConfigFile 4: Section 1]
+     [ConfigFile 5: Section 3]
+     [ConfigFile 6: Section 1]
+     Then the order of the cells are going to be:
+     ConfigFile 1
+     ConfigFile 4
+     ConfigFile 6
+     ConfigFile 2
+     ConfigFile 3
+     ConfigFile 5
+     
+     - parameter configFiles: The array of configFiles that are going to be inserted.
+     - parameter maxSectionInsertedOpt: *Don't use this parameter is only for internal usage*.
+     - parameter completion: Callback that will be called when the insertion has been applied.
+     */
+    public func insertCells(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator], maxSectionInsertedOpt: Int? = nil, completion: (()->())? = nil) {
         let configFiles = getConfigFilesWithoutDuplication(configFiles: partialConfigFiles)
         
         let sections = Set(configFiles.map { $0.section }).sorted { $0.0 < $0.1 }
@@ -344,7 +387,8 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
-    public func insertRowAtLocation(locationPosition: SnazzyLocationPosition, filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, configFile partialConfigFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
+    
+    public func insertCellAtLocation(locationPosition: SnazzyLocationPosition, filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, configFile partialConfigFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
         
         guard let configFile = getConfigFileWithoutDuplication(configFile: partialConfigFile) else { completion?(); return }
         guard let index = self.configFiles.index(where: filter) else { completion?(); return }
@@ -369,7 +413,7 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
-    public func insertRowsAtTopOfEachSection(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator]) {
+    public func insertCellsAtTopOfEachSection(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator]) {
         let configFiles = getConfigFilesWithoutDuplication(configFiles: partialConfigFiles)
         let sections = Set(configFiles.map { $0.section }).sorted { $0.0 < $0.1 }
         var maxSectionInserted = self.collectionView.numberOfSections
@@ -394,12 +438,12 @@ extension SnazzyCollectionViewDataSource {
         }, completion: nil)
     }
     
-    public func insertRowAtTopOfSection(configFile: SnazzyCollectionCellConfigurator) {
-        insertRowsAtTopOfEachSection(configFiles: [configFile])
+    public func insertCellAtTopOfSection(configFile: SnazzyCollectionCellConfigurator) {
+        insertCellsAtTopOfEachSection(configFiles: [configFile])
     }
     
-    public func insertRow(configFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
-        insertRows(configFiles: [configFile], completion: completion)
+    public func insertCell(configFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
+        insertCells(configFiles: [configFile], completion: completion)
     }
     
     public func getIndexPath(by filter: (SnazzyCollectionCellConfigurator)->Bool) -> IndexPath? {
