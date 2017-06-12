@@ -120,9 +120,9 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         genericCell.collectionView?(collectionView, didEndDisplaying: cell, forItemAt: indexPath, with: configFile.item)
     }
 
-    weak public var dataSource: SnazzyCollectionViewDataSource!
-    public var reachLastCellInCollection: (()->())?
-    public var reachLastSectionInCollection: (()->())?
+    weak fileprivate var dataSource: SnazzyCollectionViewDataSource!
+    fileprivate var reachLastCellInCollection: (()->())?
+    fileprivate var reachLastSectionInCollection: (()->())?
     fileprivate var didEndScrollingAtIndex: ((Int)->())?
     fileprivate var didScroll: ((UIScrollView)->())?
     fileprivate var willDisplayCell: ((IndexPath)->())?
@@ -222,7 +222,7 @@ extension SnazzyCollectionViewDelegate {
         
         guard let sectionGap = maxSection else { return false }
         
-        if sectionGap - 3 == indexPath.section {
+        if sectionGap - 1 == indexPath.section {
             let numberOfRowsInLastSection = dataSource.configFiles.filter { $0.section == maxSection && $0.typeCell == .cell }.count
             return lastRowComparation(indexPath: indexPath, numberOfRows: numberOfRowsInLastSection)
         }
