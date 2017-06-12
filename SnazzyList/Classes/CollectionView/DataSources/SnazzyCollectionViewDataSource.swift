@@ -142,31 +142,43 @@ public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSourc
         }
     }
     
-    weak fileprivate var collectionView: UICollectionView!
+    weak var collectionView: UICollectionView!
 }
 
 extension SnazzyCollectionViewDataSource {
+    /// This method will reload the `UICollectionView`, without animations.
     public func reload() {
         collectionView.reloadData()
     }
     
+    /// This method will reload an specific section at the `UICollectionView`, animated.
     public func reloadAt(section: Int) {
         collectionView.reloadSections(IndexSet(integer: section))
     }
     
+    /// This method will reload sections at the `UICollectionView`, animated.
     public func reloadAtSections(indexSet: IndexSet) {
         collectionView.reloadSections(indexSet)
     }
     
+    /// This method will reload the specified indexPaths at the `UICollectionView`, animated.
     public func reloadAt(indexPaths: [IndexPath]) {
         collectionView.reloadItems(at: indexPaths)
     }
     
+    /// This method will reload the `UICollectionView` for the specified `IndexPath`
     public func reloadAt(indexPath: IndexPath) {
         self.collectionView.reloadItems(at: [indexPath])
     }
     
-    public func deleteRow(by filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, completion: (()->())? = nil) {
+    /**
+     This method will delete only one cell for the specified filter.
+     *Caution* if the filter specified in the parameter matches more than one cell, then you will have unwanted behaviors.
+     For deleting more than one cell, use the method `deleteAllRowsAt:section`.
+     - parameter filter: Closure that indicated what row should be deleted.
+     - parameter completion: Callback that will be called when the deletion has been applied.
+    */
+    public func deleteCell(by filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, completion: (()->())? = nil) {
         self.collectionView.performBatchUpdates({ 
             guard let indexPath = self.getIndexPath(by: filter) else { return }
             
@@ -188,7 +200,12 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
-    public func deleteAllRowsAt(section: Int, completion: (()->())? = nil) {
+    /**
+     This method will delete all cells at the specified section.
+     - parameter section: The section for deleting all the cells.
+     - parameter completion: Callback that will be called when the deletion has been applied.
+     */
+    public func deleteAllCellsAt(section: Int, completion: (()->())? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
         if configFilesToDelete.count == 0 { return }
@@ -217,6 +234,13 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
+    /**
+     This method will delete all cells at the specified section. Then it will insert all the configFiles specified at the `configFiles` parameter.
+     The deletion and the insertion are going to happen at the same batch as you would expect.
+     - parameter at: The section for deleting all the cells.
+     - parameter andInsert: The array of configFiles to be inserted.
+     - parameter completion: Callback that will be called when the deletion has been applied.
+     */
     public func delete(at section: Int, andInsert configFiles: [SnazzyCollectionCellConfigurator], completion: (()->())? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
