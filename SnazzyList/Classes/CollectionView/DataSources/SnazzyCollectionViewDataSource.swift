@@ -387,7 +387,15 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
-    
+    /**
+     This method will insert one cell at the specified location.
+     In order to do so, you must provide the `locationPosition` (Before or After) the specified filter for finding the cell that you need.
+     For example if you need to insert a cell after the one with class `MyUniqueCellClass` then you would pass `SnazzyLocationPosition.after` and then in the filter you would pass a closure like so: ` { $0.classType == MyUniqueCellClass.self }` and then finally pass the desired configFile at the parameter with that name.
+     - parameter locationPosition: Indicate *after* or *before* refering to the second parameter (The filter).
+     - parameter filter: A Closure for finding the cell that you want to insert your new cell after or before.
+     - parameter configFile: The configFile that you want to insert.
+     - parameter completion: Callback that will be called when the insertion has been applied.
+     */
     public func insertCellAtLocation(locationPosition: SnazzyLocationPosition, filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, configFile partialConfigFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
         
         guard let configFile = getConfigFileWithoutDuplication(configFile: partialConfigFile) else { completion?(); return }
