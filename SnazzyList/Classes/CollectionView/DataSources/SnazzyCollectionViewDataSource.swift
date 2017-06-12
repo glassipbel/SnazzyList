@@ -173,7 +173,7 @@ extension SnazzyCollectionViewDataSource {
     
     /**
      This method will delete only one cell for the specified filter.
-     *Caution* if the filter specified in the parameter matches more than one cell, then you will have unwanted behaviors.
+     *Caution* if the filter specified in the parameter matches more than one cell, then you will have an unwanted behavior.
      For deleting more than one cell, use the method `deleteAllRowsAt:section`.
      - parameter filter: Closure that indicated what row should be deleted.
      - parameter completion: Callback that will be called when the deletion has been applied.
@@ -388,6 +388,15 @@ extension SnazzyCollectionViewDataSource {
     }
     
     /**
+     This method will insert the cell specified at `configFile`.
+     - parameter configFile: The configFile that is going to be inserted.
+     - parameter completion: Callback that will be called when the insertion has been applied.
+     */
+    public func insertCell(configFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
+        insertCells(configFiles: [configFile], completion: completion)
+    }
+    
+    /**
      This method will insert one cell at the specified location.
      In order to do so, you must provide the `locationPosition` (Before or After) the specified filter for finding the cell that you need.
      For example if you need to insert a cell after the one with class `MyUniqueCellClass` then you would pass `SnazzyLocationPosition.after` and then in the filter you would pass a closure like so: ` { $0.classType == MyUniqueCellClass.self }` and then finally pass the desired configFile at the parameter with that name.
@@ -421,7 +430,12 @@ extension SnazzyCollectionViewDataSource {
         }
     }
     
-    public func insertCellsAtTopOfEachSection(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator]) {
+    /**
+     This method will insert all the configFiles specified at the parameter `configFiles` at top of each section corresponding to each section respecting the order within each section.
+     - parameter configFiles: The array of configFiles that are going to be inserted.
+     - parameter completion: Callback that will be called when the insertion has been applied.
+     */
+    public func insertCellsAtTopOfEachSection(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator], completion: (()->())? = nil) {
         let configFiles = getConfigFilesWithoutDuplication(configFiles: partialConfigFiles)
         let sections = Set(configFiles.map { $0.section }).sorted { $0.0 < $0.1 }
         var maxSectionInserted = self.collectionView.numberOfSections
@@ -443,17 +457,24 @@ extension SnazzyCollectionViewDataSource {
                 self.configFiles.insert(contentsOf: configFilesForSection, at: 0)
                 self.collectionView.insertItems(at: indexPaths)
             }
-        }, completion: nil)
+        }) { completed in completion?() }
     }
     
-    public func insertCellAtTopOfSection(configFile: SnazzyCollectionCellConfigurator) {
-        insertCellsAtTopOfEachSection(configFiles: [configFile])
+    /**
+     This method will insert the configFile specified at the parameter `configFile` at top of its section.
+     - parameter configFile: The configFile that is going to be inserted.
+     - parameter completion: Callback that will be called when the insertion has been applied.
+     */
+    public func insertCellAtTopOfSection(configFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
+        insertCellsAtTopOfEachSection(configFiles: [configFile], completion: completion)
     }
     
-    public func insertCell(configFile: SnazzyCollectionCellConfigurator, completion: (()->())? = nil) {
-        insertCells(configFiles: [configFile], completion: completion)
-    }
-    
+    /**
+     This method will retrieve the IndexPath given by the filter. If the filter don't match any result it will return nil, on the other hand if the filter matches multiple results it will retrieve the first one.
+     You can use the indexPath after that to reload that cell or another operations that require the indexPath.
+     - parameter by: A Closure that represents the cell that you want to find its IndexPath.
+     - returns: The IndexPath that matched the given filter.
+     */
     public func getIndexPath(by filter: (SnazzyCollectionCellConfigurator)->Bool) -> IndexPath? {
         guard let configFile = configFiles.filter(filter).first else { return nil }
         
