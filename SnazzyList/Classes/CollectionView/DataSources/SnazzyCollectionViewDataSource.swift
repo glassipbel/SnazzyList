@@ -175,7 +175,7 @@ extension SnazzyCollectionViewDataSource {
      This method will delete only one cell for the specified filter.
      **Caution** if the filter specified in the parameter matches more than one cell, then you will have an unwanted behavior.
      For deleting more than one cell, use the method `deleteAllRowsAt:section`.
-     - parameter filter: Closure that indicated what row should be deleted.
+     - parameter filter: Closure that indicates what cell should be deleted.
      - parameter completion: Callback that will be called when the deletion has been applied.
     */
     public func deleteCell(by filter: @escaping (SnazzyCollectionCellConfigurator)->Bool, completion: (()->())? = nil) {

@@ -38,6 +38,9 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         self.dataSource.collectionView.delegate = self
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let configFile = dataSource.configFiles.filter { $0.section == indexPath.section && $0.typeCell == .cell }[indexPath.item]
@@ -54,6 +57,9 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .header }).first else { return .zero }
@@ -70,6 +76,9 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .footer }).first else { return .zero }
         
@@ -85,16 +94,25 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SnazzyCollectionCellProtocol else { return }
         cell.collectionView?(collectionView: collectionView, didSelectItemAt: indexPath)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SnazzyCollectionCellProtocol else { return }
         cell.collectionView?(collectionView: collectionView, didDeselectItemAt: indexPath)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if dataSource.configFiles.count == 0 { return }
         
@@ -119,6 +137,9 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
         genericCell.collectionView?(collectionView, willDisplay: cell, forItemAt: indexPath, with: configFile.item)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         guard let genericCell = cell as? SnazzyCollectionCellProtocol else { return }
@@ -142,25 +163,31 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
 }
 
 extension SnazzyCollectionViewDelegate: UIScrollViewDelegate {
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         didScroll?(scrollView)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     */
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.willBeganScrolling?()
     }
 }
 
 extension SnazzyCollectionViewDelegate {
-    public func cellOriginY(cell filter: @escaping (SnazzyCollectionCellConfigurator) -> Bool) -> CGFloat? {
-        guard let index = dataSource.getIndexPath(by: filter) else { return nil }
-        guard let superview = dataSource.collectionView.superview else { return nil }
-        guard let atts = dataSource.collectionView.layoutAttributesForItem(at: index) else { return nil }
-        let cellRect = atts.frame
-        let origin = dataSource.collectionView.convert(cellRect, to: superview).origin
-        return origin.y
-    }
-    
+    /**
+     This method will return the offset of the cell specified in the filter parameter.
+     - parameter offsetY: You must provide the offsetY of the `UICollectionView` regarding to its superview.
+     For example if the `UICollectionView` has a topAnchor to its superview of 30 points, then you should pass the 30 in the offsetY parameter.
+     Otherwise if the `UICollectionView` has a topAnchor equal its superview, then you don't need to pass any value in this parameter.
+     - parameter cell: Closure that indicates what cell this method should track its progress.
+     - returns: The progress of the cell from the origin of the `UICollectionView`.
+     
+     */
     public func cellIsGoingOutWithProgress(offsetY additionalOffsetY: CGFloat = 0.0, cell filter: @escaping (SnazzyCollectionCellConfigurator) -> Bool) -> CGFloat? {
         guard let index = dataSource.getIndexPath(by: filter) else { return nil }
         guard let superview = dataSource.collectionView.superview else { return nil }
@@ -169,32 +196,18 @@ extension SnazzyCollectionViewDelegate {
         let origin = dataSource.collectionView.convert(cellRect, to: superview).origin
         
         let offsetY = (origin.y - dataSource.collectionView.frame.origin.y - additionalOffsetY)
-        if offsetY > 0 { return nil }
         let cellheight = cellRect.size.height
         let absDis = abs(offsetY)
         return (absDis/cellheight)
     }
     
-    /**
-     Assuming all pages are same size and paging is enabled.
-     */
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        guard let callback = didEndScrollingAtIndex else { return }
-        if !scrollView.isPagingEnabled { return }
-        if dataSource.configFiles.count == 0 { return }
-        guard let flowLayout = dataSource.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        
-        let fullSize = flowLayout.scrollDirection == .horizontal ?
-            dataSource.collectionView.contentSize.width :
-            dataSource.collectionView.contentSize.height
-        
-        let size = fullSize / CGFloat(dataSource.configFiles.count)
-        
-        let offset = flowLayout.scrollDirection == .horizontal ?
-            scrollView.contentOffset.x :
-            scrollView.contentOffset.y
-        
-        callback(Int(offset/size))
+    fileprivate func cellOriginY(cell filter: @escaping (SnazzyCollectionCellConfigurator) -> Bool) -> CGFloat? {
+        guard let index = dataSource.getIndexPath(by: filter) else { return nil }
+        guard let superview = dataSource.collectionView.superview else { return nil }
+        guard let atts = dataSource.collectionView.layoutAttributesForItem(at: index) else { return nil }
+        let cellRect = atts.frame
+        let origin = dataSource.collectionView.convert(cellRect, to: superview).origin
+        return origin.y
     }
     
     fileprivate func checkIfReachLastCellInCollection(indexPath: IndexPath) -> Bool {
