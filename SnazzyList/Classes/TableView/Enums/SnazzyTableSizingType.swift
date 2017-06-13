@@ -5,6 +5,9 @@
 
 import UIKit
 
+/**
+ An option for what kind of sizing option you want for every configFile.
+ */
 public enum SnazzyTableSizingType {
     case specificHeight(CGFloat)
     case automatic

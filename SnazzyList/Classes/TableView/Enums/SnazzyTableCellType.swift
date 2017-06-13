@@ -5,6 +5,9 @@
 
 import UIKit
 
+/**
+ An option for what kind of cell you want to add.
+ */
 public enum SnazzyTableCellType {
     case cell
     case header

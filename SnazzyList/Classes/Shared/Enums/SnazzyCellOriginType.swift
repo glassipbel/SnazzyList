@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ An option for specifing if the cell was designed by Code or by Xib File.
+ */
 public enum SnazzyCellOriginType {
     case nib
     case code

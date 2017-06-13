@@ -28,7 +28,7 @@ public struct SnazzyCollectionCellConfigurator: Hashable, Equatable {
      Creates a new instance of the `SnazzyCollectionCellConfigurator`.
      - parameter classType: The class that represents your cell. For example if your cell's name is CustomCollectionViewCell, then you should enter: `CustomCollectionViewCell.self`
      - parameter typeCell: The type of your cell. [Cell, Header or Footer]
-     - parameter item: The configFile for your cell, here you should pass all your items that you are going to need in order to configure your cell at cellForItemAtIndexPath.
+     - parameter item: The configFile for your cell, here you should pass all your items that you are going to need in order to configure your cell at `cellForItemAtIndexPath.
      - parameter section: The section for this cell.
      - parameter sizingType: The way of determinate the size of this cell. For examples please take a look at the example guides.
      - parameter diffableIdentifier: You can provide a unique value, if you do, then you would only one cell with this identifier, even if you try to add more than one it will be ignored.

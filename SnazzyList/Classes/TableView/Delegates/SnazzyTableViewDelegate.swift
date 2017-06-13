@@ -5,10 +5,15 @@
 
 import UIKit
 
+/// An instance of `SnazzyCollectionViewDelegate` is responsable for responding the methods that the collection view needs in order to display all the cells properly. You must have this instance in your desired `UIViewController`.
 public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
-    weak public var dataSource: SnazzyTableViewDataSource!
-    public var reachLastCellInTableView: (()->())?
     
+    /**
+     Creates a new instance of the `SnazzyTableViewDelegate`.
+     - parameter dataSource: The `SnazzyTableViewDataSource` that you instantiated in your `UIViewController`.
+     - parameter reachLastCellInTableView: An optional callback that will be called when the user reachs the last cell in the `UITableView`.
+     - returns: An Instance of `SnazzyTableViewDelegate`
+     */
     public init(dataSource: SnazzyTableViewDataSource, reachLastCellInTableView: (()->())? = nil) {
         self.dataSource = dataSource
         self.reachLastCellInTableView = reachLastCellInTableView
@@ -17,6 +22,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         self.dataSource.tableView.delegate = self
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let configFile = (self.dataSource.configFiles.filter { $0.typeCell == .header && $0.section == section }).first
             else { return nil }
@@ -27,6 +35,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         return cell as! UITableViewHeaderFooterView
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let configFile = (self.dataSource.configFiles.filter { $0.typeCell == .footer && $0.section == section }).first
             else { return nil }
@@ -37,6 +48,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         return cell as! UITableViewHeaderFooterView
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let configFile = dataSource.configFiles.filter { $0.section == indexPath.section && $0.typeCell == .cell }[indexPath.row]
         
@@ -46,6 +60,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let configFile = dataSource.configFiles.filter { $0.section == indexPath.section && $0.typeCell == .cell }[indexPath.row]
         
@@ -55,6 +72,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .header }).first else { return 0.0 }
         
@@ -64,6 +84,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .header }).first else { return 0.0 }
         
@@ -73,6 +96,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .footer }).first else { return 0.0 }
         
@@ -82,6 +108,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .footer }).first else { return 0.0 }
         
@@ -91,16 +120,25 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SnazzyTableCellProtocol else { return }
         cell.tableView?(tableView, didSelectRowAt: indexPath)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? SnazzyTableCellProtocol else { return }
         cell.tableView?(tableView, didDeselectRowAt: indexPath)
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let genericCell = cell as? SnazzyTableCellProtocol else { return }
         
@@ -113,6 +151,9 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         }
     }
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         guard let genericCell = cell as? SnazzyTableCellProtocol else { return }
@@ -126,7 +167,12 @@ public class SnazzyTableViewDelegate: NSObject, UITableViewDelegate {
         genericCell.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath, with: configFile.item)
     }
     
-    private func checkIfReachLastCellInTableView(indexPath: IndexPath) -> Bool {
+    fileprivate var reachLastCellInTableView: (()->())?
+    weak fileprivate var dataSource: SnazzyTableViewDataSource!
+}
+
+extension SnazzyTableViewDelegate {
+    fileprivate func checkIfReachLastCellInTableView(indexPath: IndexPath) -> Bool {
         //Returning false because the user doesn't want to know if reached last cell in collection.
         if reachLastCellInTableView == nil { return false }
         
