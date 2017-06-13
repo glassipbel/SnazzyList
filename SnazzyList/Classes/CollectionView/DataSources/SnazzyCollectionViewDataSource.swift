@@ -33,7 +33,7 @@ public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSourc
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let configFile = (configFiles.filter { $0.section == indexPath.section && $0.typeCell == .cell })[indexPath.item]
@@ -48,7 +48,7 @@ public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSourc
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let maxSectionNumber = (configFiles.map { $0.section }.sorted { $0.0 > $0.1 }).first else { return 1 }
@@ -56,7 +56,7 @@ public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSourc
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let items = configFiles.filter { $0.section == section && $0.typeCell == .cell }.count
@@ -64,7 +64,7 @@ public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSourc
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         

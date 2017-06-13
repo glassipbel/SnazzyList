@@ -5,6 +5,9 @@
 
 import Foundation
 
+/**
+ An option for getting the location for method, after or before.
+ */
 public enum SnazzyLocationPosition: Int {
     case before = -1
     case after = 1

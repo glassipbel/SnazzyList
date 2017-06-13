@@ -5,11 +5,17 @@
 
 import UIKit
 
+/**
+ An option for what kind of cell you want to add.
+ */
 public enum SnazzyCollectionCellType {
     case cell
     case header
     case footer
     
+    /**
+     Internal Method for correct operation of `SnazzyList`.
+     */
     static public func getCollectionCellTypeBySupplementaryKind(kind: String) -> SnazzyCollectionCellType? {
         switch kind {
             case UICollectionElementKindSectionHeader: return .header

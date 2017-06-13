@@ -4,6 +4,9 @@
 //
 import UIKit
 
+/**
+ An option for what kind of sizing option you want for every configFile.
+ */
 public enum SnazzyCollectionSizingType {
     case specificSize(CGSize)
     case specificHeight(CGFloat)

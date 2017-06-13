@@ -39,7 +39,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -58,7 +58,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
@@ -77,7 +77,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         guard let configFile = (dataSource.configFiles.filter { $0.section == section && $0.typeCell == .footer }).first else { return .zero }
@@ -95,7 +95,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SnazzyCollectionCellProtocol else { return }
@@ -103,7 +103,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? SnazzyCollectionCellProtocol else { return }
@@ -111,7 +111,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if dataSource.configFiles.count == 0 { return }
@@ -138,7 +138,7 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
@@ -164,14 +164,14 @@ public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, U
 
 extension SnazzyCollectionViewDelegate: UIScrollViewDelegate {
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         didScroll?(scrollView)
     }
     
     /**
-     Internal Method for correct operation of `SnazzyCollectionViewDataSource`.
+     Internal Method for correct operation of `SnazzyList`.
      */
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.willBeganScrolling?()

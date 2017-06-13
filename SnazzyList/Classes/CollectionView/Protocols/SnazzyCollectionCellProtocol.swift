@@ -5,6 +5,9 @@
 
 import UIKit
 
+/**
+ A Protocol that must be implemented in all your `UICollectionViewCell`.
+ */
 @objc public protocol SnazzyCollectionCellProtocol {
     func collectionView(collectionView: UICollectionView, cellForItemAt indexPath: IndexPath, with item: Any)
     @objc optional func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
