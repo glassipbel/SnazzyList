@@ -28,6 +28,20 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
+            <a href="../Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../best-practices-and-faq.html">Best Practices and FAQ</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../getting-started.html">Getting Started</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../installation.html">Installation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -121,7 +135,13 @@
         <section>
           <section class="section">
             <h1>SnazzyTableCellProtocol</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                </div>
+              </div>
+            <p>A Protocol that must be implemented in all your <code>UITableViewCell</code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -140,8 +160,60 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will be called whenever the <code>UITableView</code> will call the <code>cellForRowAt</code>.
+You will receive in the parameter <code>item</code> all the values that you entered when you created the configFile.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAt</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="n">with</span> <span class="nv">item</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tableView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>UITableView</code> that is handling this row.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cellForRowAt</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indexPath for this row.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>with</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>All the values that you entered when you created the configFile.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -162,6 +234,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -180,6 +260,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -200,6 +288,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -218,6 +314,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -238,6 +342,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -257,6 +369,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SnazzyTableCellProtocol</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -265,7 +385,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-13)</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Kevin Belter</a>. All rights reserved. (Last updated: 2017-06-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
