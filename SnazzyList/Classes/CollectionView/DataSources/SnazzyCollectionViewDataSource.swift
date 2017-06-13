@@ -5,7 +5,7 @@
 
 import UIKit
 
-/// An instance of `SnazzyCollectionViewDataSource` is responsable for responding the methods that the collection view neeeds in order to display all the cells properly. You must have this instance in your desired `UIViewController`.
+/// An instance of `SnazzyCollectionViewDataSource` is responsable for responding the methods that the collection view needs in order to display all the cells properly. You must have this instance in your desired `UIViewController`.
 public class SnazzyCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     /**
@@ -173,7 +173,7 @@ extension SnazzyCollectionViewDataSource {
     
     /**
      This method will delete only one cell for the specified filter.
-     *Caution* if the filter specified in the parameter matches more than one cell, then you will have an unwanted behavior.
+     **Caution** if the filter specified in the parameter matches more than one cell, then you will have an unwanted behavior.
      For deleting more than one cell, use the method `deleteAllRowsAt:section`.
      - parameter filter: Closure that indicated what row should be deleted.
      - parameter completion: Callback that will be called when the deletion has been applied.
@@ -275,19 +275,23 @@ extension SnazzyCollectionViewDataSource {
     /**
      This method will delete all cells that are equal or greather than the specified section. Then it will insert all the configFiles specified at the `configFiles` parameter.
      The configFiles don't need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.
+     
      For example if you insert these configFiles for sections:
-     [ConfigFile 1: Section 1]
-     [ConfigFile 2: Section 2]
-     [ConfigFile 3: Section 2]
-     [ConfigFile 4: Section 1]
-     [ConfigFile 5: Section 3]
+     
+     [ConfigFile 1: Section 1]  
+     [ConfigFile 2: Section 2]  
+     [ConfigFile 3: Section 2]  
+     [ConfigFile 4: Section 1]  
+     [ConfigFile 5: Section 3]  
      [ConfigFile 6: Section 1]
+     
      Then the order of the cells are going to be:
-     ConfigFile 1
-     ConfigFile 4
-     ConfigFile 6
-     ConfigFile 2
-     ConfigFile 3
+     
+     ConfigFile 1  
+     ConfigFile 4  
+     ConfigFile 6  
+     ConfigFile 2  
+     ConfigFile 3  
      ConfigFile 5
      
      The deletion and the insertion are going to happen at the same batch as you would expect.
@@ -341,14 +345,18 @@ extension SnazzyCollectionViewDataSource {
     /**
      This method will insert all the cells specified at `configFiles`.
      The configFiles don't need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.
+     
      For example if you insert these configFiles for sections:
+     
      [ConfigFile 1: Section 1]
      [ConfigFile 2: Section 2]
      [ConfigFile 3: Section 2]
      [ConfigFile 4: Section 1]
      [ConfigFile 5: Section 3]
      [ConfigFile 6: Section 1]
+     
      Then the order of the cells are going to be:
+     
      ConfigFile 1
      ConfigFile 4
      ConfigFile 6
@@ -357,7 +365,7 @@ extension SnazzyCollectionViewDataSource {
      ConfigFile 5
      
      - parameter configFiles: The array of configFiles that are going to be inserted.
-     - parameter maxSectionInsertedOpt: *Don't use this parameter is only for internal usage*.
+     - parameter maxSectionInsertedOpt: **Don't use this parameter is only for internal usage**.
      - parameter completion: Callback that will be called when the insertion has been applied.
      */
     public func insertCells(configFiles partialConfigFiles: [SnazzyCollectionCellConfigurator], maxSectionInsertedOpt: Int? = nil, completion: (()->())? = nil) {

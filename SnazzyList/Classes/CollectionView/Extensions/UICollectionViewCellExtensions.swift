@@ -1,9 +1,6 @@
 //
-//  UICollectionViewCellExtensions.swift
-//  Pods
-//
 //  Created by Kevin Belter on 6/8/17.
-//
+//  Copyright © 2017 KevinBelter. All rights reserved.
 //
 
 import UIKit

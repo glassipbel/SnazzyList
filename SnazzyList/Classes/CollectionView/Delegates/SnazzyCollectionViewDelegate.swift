@@ -5,8 +5,20 @@
 
 import UIKit
 
+/// An instance of `SnazzyCollectionViewDelegate` is responsable for responding the methods that the collection view needs in order to display all the cells properly. You must have this instance in your desired `UIViewController`.
 public class SnazzyCollectionViewDelegate: NSObject, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    /**
+     Creates a new instance of the `SnazzyCollectionViewDelegate`.
+     - parameter dataSource: The `SnazzyCollectionViewDataSource` that you instantiated in your `UIViewController`.
+     - parameter reachLastCellInCollection: An optional callback that will be called when the user reachs the last cell in the `UICollectionView`.
+     - parameter reachLastSectionInCollection: An optional callback that will be called when the user reachs the last section in the `UICollectionView`.
+     - parameter didEndScrollingAtIndex: An optional callback that will be called when the `UICollectionView` stops scrolling.
+     - parameter didScroll: An optional callback what will be called when the `UICollectionView` scrolls.
+     - parameter willDisplayCell: An optional callback that will be called for every cell when it will be displayed.
+     - parameter willBeganScrolling: An optional callback that will be called when the `UICollectionView` began scrolling.
+     - returns: An Instance of `SnazzyCollectionViewDelegate`
+     */
     public init(
         dataSource: SnazzyCollectionViewDataSource,
         reachLastCellInCollection: (()->())? = nil,

@@ -348,14 +348,14 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will reload the <code>UICollectionView</code>, without animations.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reload</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -375,14 +375,14 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will reload an specific section at the <code>UICollectionView</code>, animated.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reloadAt</span><span class="p">(</span><span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -402,14 +402,14 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will reload sections at the <code>UICollectionView</code>, animated.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reloadAtSections</span><span class="p">(</span><span class="nv">indexSet</span><span class="p">:</span> <span class="kt">IndexSet</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -429,14 +429,14 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will reload the specified indexPaths at the <code>UICollectionView</code>, animated.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reloadAt</span><span class="p">(</span><span class="nv">indexPaths</span><span class="p">:</span> <span class="p">[</span><span class="kt">IndexPath</span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -456,14 +456,14 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will reload the <code>UICollectionView</code> for the specified <code>IndexPath</code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reloadAt</span><span class="p">(</span><span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -473,9 +473,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource9deleteRowFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_"></a>
-                    <a name="//apple_ref/swift/Method/deleteRow(by:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource9deleteRowFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_">deleteRow(by:completion:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource10deleteCellFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteCell(by:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource10deleteCellFT2byFVS_32SnazzyCollectionCellConfiguratorSb10completionGSqFT_T___T_">deleteCell(by:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,16 +483,49 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will delete only one cell for the specified filter.
+<strong>Caution</strong> if the filter specified in the parameter matches more than one cell, then you will have an unwanted behavior.
+For deleting more than one cell, use the method <code>deleteAllRowsAt:section</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteCell</span><span class="p">(</span><span class="n">by</span> <span class="nv">filter</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Closure that indicated what row should be deleted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the deletion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -500,9 +533,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource15deleteAllRowsAtFT7sectionSi10completionGSqFT_T___T_"></a>
-                    <a name="//apple_ref/swift/Method/deleteAllRowsAt(section:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource15deleteAllRowsAtFT7sectionSi10completionGSqFT_T___T_">deleteAllRowsAt(section:completion:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource16deleteAllCellsAtFT7sectionSi10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/deleteAllCellsAt(section:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource16deleteAllCellsAtFT7sectionSi10completionGSqFT_T___T_">deleteAllCellsAt(section:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -510,16 +543,47 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will delete all cells at the specified section.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteAllCellsAt</span><span class="p">(</span><span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>section</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The section for deleting all the cells.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the deletion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -537,16 +601,60 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will delete all cells at the specified section. Then it will insert all the configFiles specified at the <code><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></code> parameter.
+The deletion and the insertion are going to happen at the same batch as you would expect.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">at</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">andInsert</span> <span class="nv">configFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>at</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The section for deleting all the cells.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>andInsert</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of configFiles to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the deletion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -564,16 +672,80 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will delete all cells that are equal or greather than the specified section. Then it will insert all the configFiles specified at the <code><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></code> parameter.
+The configFiles don&rsquo;t need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.</p>
+
+<p>For example if you insert these configFiles for sections:</p>
+
+<p>[ConfigFile 1: Section 1]<br>
+[ConfigFile 2: Section 2]<br>
+[ConfigFile 3: Section 2]<br>
+[ConfigFile 4: Section 1]<br>
+[ConfigFile 5: Section 3]<br>
+[ConfigFile 6: Section 1]</p>
+
+<p>Then the order of the cells are going to be:</p>
+
+<p>ConfigFile 1<br>
+ConfigFile 4<br>
+ConfigFile 6<br>
+ConfigFile 2<br>
+ConfigFile 3<br>
+ConfigFile 5</p>
+
+<p>The deletion and the insertion are going to happen at the same batch as you would expect.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">deleteSections</span><span class="p">(</span><span class="n">greaterOrEqualTo</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">andInsert</span> <span class="nv">configFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>greaterOrEqualTo</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The section for deleting all the cells.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>andInsert</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of configFiles to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the deletion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -581,9 +753,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertRowsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_"></a>
-                    <a name="//apple_ref/swift/Method/insertRows(configFiles:maxSectionInsertedOpt:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertRowsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_">insertRows(configFiles:maxSectionInsertedOpt:completion:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource11insertCellsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertCells(configFiles:maxSectionInsertedOpt:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource11insertCellsFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_21maxSectionInsertedOptGSqSi_10completionGSqFT_T___T_">insertCells(configFiles:maxSectionInsertedOpt:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -591,16 +763,78 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will insert all the cells specified at <code><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></code>.
+The configFiles don&rsquo;t need to be sorted by sections but the order of the array is gonna be the order of the cells for every section.</p>
+
+<p>For example if you insert these configFiles for sections:</p>
+
+<p>[ConfigFile 1: Section 1]
+[ConfigFile 2: Section 2]
+[ConfigFile 3: Section 2]
+[ConfigFile 4: Section 1]
+[ConfigFile 5: Section 3]
+[ConfigFile 6: Section 1]</p>
+
+<p>Then the order of the cells are going to be:</p>
+
+<p>ConfigFile 1
+ConfigFile 4
+ConfigFile 6
+ConfigFile 2
+ConfigFile 3
+ConfigFile 5</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insertCells</span><span class="p">(</span><span class="n"><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></span> <span class="nv">partialConfigFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">],</span> <span class="nv">maxSectionInsertedOpt</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFiles</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of configFiles that are going to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>maxSectionInsertedOpt</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><strong>Don&rsquo;t use this parameter is only for internal usage</strong>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the insertion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -608,9 +842,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource19insertRowAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_"></a>
-                    <a name="//apple_ref/swift/Method/insertRowAtLocation(locationPosition:filter:configFile:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource19insertRowAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_">insertRowAtLocation(locationPosition:filter:configFile:completion:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertCellFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertCell(configFile:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource10insertCellFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_">insertCell(configFile:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -618,16 +852,47 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will insert the cell specified at <code>configFile</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insertCell</span><span class="p">(</span><span class="nv">configFile</span><span class="p">:</span> <span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The configFile that is going to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the insertion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -635,9 +900,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource28insertRowsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator__T_"></a>
-                    <a name="//apple_ref/swift/Method/insertRowsAtTopOfEachSection(configFiles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource28insertRowsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator__T_">insertRowsAtTopOfEachSection(configFiles:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource20insertCellAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertCellAtLocation(locationPosition:filter:configFile:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource20insertCellAtLocationFT16locationPositionOS_22SnazzyLocationPosition6filterFVS_32SnazzyCollectionCellConfiguratorSb10configFileS2_10completionGSqFT_T___T_">insertCellAtLocation(locationPosition:filter:configFile:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -645,16 +910,73 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will insert one cell at the specified location.
+In order to do so, you must provide the <code>locationPosition</code> (Before or After) the specified filter for finding the cell that you need.
+For example if you need to insert a cell after the one with class <code>MyUniqueCellClass</code> then you would pass <code><a href="../Enums/SnazzyLocationPosition.html#/s:FO10SnazzyList22SnazzyLocationPosition5afterFMS0_S0_">SnazzyLocationPosition.after</a></code> and then in the filter you would pass a closure like so: <code>{ $0.classType == MyUniqueCellClass.self }</code> and then finally pass the desired configFile at the parameter with that name.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insertCellAtLocation</span><span class="p">(</span><span class="nv">locationPosition</span><span class="p">:</span> <span class="kt"><a href="../Enums/SnazzyLocationPosition.html">SnazzyLocationPosition</a></span><span class="p">,</span> <span class="nv">filter</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">Bool</span><span class="p">,</span> <span class="n">configFile</span> <span class="nv">partialConfigFile</span><span class="p">:</span> <span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>locationPosition</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Indicate <em>after</em> or <em>before</em> refering to the second parameter (The filter).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A Closure for finding the cell that you want to insert your new cell after or before.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The configFile that you want to insert.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the insertion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -662,9 +984,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource23insertRowAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator_T_"></a>
-                    <a name="//apple_ref/swift/Method/insertRowAtTopOfSection(configFile:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource23insertRowAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator_T_">insertRowAtTopOfSection(configFile:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource29insertCellsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertCellsAtTopOfEachSection(configFiles:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource29insertCellsAtTopOfEachSectionFT11configFilesGSaVS_32SnazzyCollectionCellConfigurator_10completionGSqFT_T___T_">insertCellsAtTopOfEachSection(configFiles:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -672,16 +994,47 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will insert all the configFiles specified at the parameter <code><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></code> at top of each section corresponding to each section respecting the order within each section.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insertCellsAtTopOfEachSection</span><span class="p">(</span><span class="n"><a href="../Classes/SnazzyCollectionViewDataSource.html#/s:vC10SnazzyList30SnazzyCollectionViewDataSource11configFilesGSaVS_32SnazzyCollectionCellConfigurator_">configFiles</a></span> <span class="nv">partialConfigFiles</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFiles</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The array of configFiles that are going to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the insertion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -689,9 +1042,9 @@ Most of the time you would use the convinience methods to insert and delete cell
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource9insertRowFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_"></a>
-                    <a name="//apple_ref/swift/Method/insertRow(configFile:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource9insertRowFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_">insertRow(configFile:completion:)</a>
+                    <a name="/s:FC10SnazzyList30SnazzyCollectionViewDataSource24insertCellAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/insertCellAtTopOfSection(configFile:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC10SnazzyList30SnazzyCollectionViewDataSource24insertCellAtTopOfSectionFT10configFileVS_32SnazzyCollectionCellConfigurator10completionGSqFT_T___T_">insertCellAtTopOfSection(configFile:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -699,16 +1052,47 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will insert the configFile specified at the parameter <code>configFile</code> at top of its section.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insertCellAtTopOfSection</span><span class="p">(</span><span class="nv">configFile</span><span class="p">:</span> <span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">(()</span><span class="o">-&gt;</span><span class="p">())?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The configFile that is going to be inserted.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback that will be called when the insertion has been applied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -726,16 +1110,40 @@ Most of the time you would use the convinience methods to insert and delete cell
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This method will retrieve the IndexPath given by the filter. If the filter don&rsquo;t match any result it will return nil, on the other hand if the filter matches multiple results it will retrieve the first one.
+You can use the indexPath after that to reload that cell or another operations that require the indexPath.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SnazzyCollectionViewDataSource</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UICollectionViewDataSource</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIndexPath</span><span class="p">(</span><span class="n">by</span> <span class="nv">filter</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Structs/SnazzyCollectionCellConfigurator.html">SnazzyCollectionCellConfigurator</a></span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">IndexPath</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>by</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A Closure that represents the cell that you want to find its IndexPath.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The IndexPath that matched the given filter.</p>
                       </div>
                     </section>
                   </div>
@@ -745,7 +1153,7 @@ Most of the time you would use the convinience methods to insert and delete cell
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-11)</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-13)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
