@@ -1,10 +1,5 @@
 # SnazzyList
 
-[![CI Status](https://img.shields.io/travis/Santiago Apaza/SnazzyList.svg?style=flat)](https://travis-ci.org/Santiago Apaza/SnazzyList)
-[![Version](https://img.shields.io/cocoapods/v/SnazzyList.svg?style=flat)](https://cocoapods.org/pods/SnazzyList)
-[![License](https://img.shields.io/cocoapods/l/SnazzyList.svg?style=flat)](https://cocoapods.org/pods/SnazzyList)
-[![Platform](https://img.shields.io/cocoapods/p/SnazzyList.svg?style=flat)](https://cocoapods.org/pods/SnazzyList)
-
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -22,7 +17,7 @@ pod 'SnazzyList'
 
 ## Author
 
-Santiago Apaza, santiago@noteworth.com
+Kevin Belter, kevin@noteworth.com
 
 ## License
 
