@@ -1,0 +1,6 @@
+framework module SnazzyAccessibility {
+  umbrella header "SnazzyAccessibility-umbrella.h"
+
+  export *
+  module * { export * }
+}
