@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache-2.0', :file => 'LICENSE' }
   s.author           = { 'Kevin Belter' => 'kevin.belter@outlook.com' }
-  s.source           = { :git => 'https://github.com/Kevin Belter/SnazzyList.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/kbelter/SnazzyList.git', :tag => s.version.to_s }
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.0'
   s.source_files = 'SnazzyList/Classes/**/*'
