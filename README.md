@@ -17,7 +17,7 @@ pod 'SnazzyList'
 
 ## Author
 
-Kevin Belter, kevin@noteworth.com
+Kevin Belter
 
 ## License
 
