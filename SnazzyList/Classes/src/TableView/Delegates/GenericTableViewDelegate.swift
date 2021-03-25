@@ -151,7 +151,7 @@ public class GenericTableViewDelegate: NSObject, UITableViewDelegate {
 // MARK: - Private Inner Framework Methods
 extension GenericTableViewDelegate {
     private func checkIfReachLastCellInTableView(indexPath: IndexPath) -> Bool {
-        //Returning false because the user doesn't want to know if reached last cell in collection.
+        // Returning false because the user doesn't want to know if reached last cell in collection.
         if actions?.reachLastCellInTableView == nil { return false }
         
         let maxSection = dataSource.configFiles.map { $0.section }.sorted { $0 > $1 }.first
@@ -169,7 +169,7 @@ extension GenericTableViewDelegate {
     }
     
     private func checkIfReachFirstCellInTableView(indexPath: IndexPath) -> Bool {
-        //Returning false because the user doesn't want to know if reached first cell in collection.
+        // Returning false because the user doesn't want to know if reached first cell in collection.
         if actions?.reachFirstCellInTableView == nil { return false }
 
         let minSection = dataSource.configFiles.sorted { $0.section < $1.section }.first?.section

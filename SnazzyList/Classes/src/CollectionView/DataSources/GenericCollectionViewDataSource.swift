@@ -86,12 +86,12 @@ public class GenericCollectionViewDataSource: NSObject, UICollectionViewDataSour
 
 extension GenericCollectionViewDataSource {
     // MARK: - Util Methods.
-    public func getCell<T>(by filter: (GenericCollectionCellConfigurator)->Bool) -> T? {
+    public func getCell<T>(by filter: (GenericCollectionCellConfigurator) -> Bool) -> T? {
         guard let indexPath = getIndexPath(by: filter) else { return nil }
         return self.collectionView.cellForItem(at: indexPath) as? T
     }
     
-    public func getIndexPath(by filter: (GenericCollectionCellConfigurator)->Bool) -> IndexPath? {
+    public func getIndexPath(by filter: (GenericCollectionCellConfigurator) -> Bool) -> IndexPath? {
         guard let configFile = configFiles.filter(filter).first else { return nil }
         
         let allRowsForSection = configFiles.filter { $0.section == configFile.section && $0.typeCell == .cell }
@@ -101,7 +101,7 @@ extension GenericCollectionViewDataSource {
         return IndexPath(item: indexInSection, section: configFile.section)
     }
     
-    public func update<T,U:UICollectionViewCell>(cellFinder filter: @escaping (GenericCollectionCellConfigurator)->Bool, updates: (T, U?) -> ()) {
+    public func update<T, U: UICollectionViewCell>(cellFinder filter: @escaping (GenericCollectionCellConfigurator) -> Bool, updates: (T, U?) -> Void) {
         guard let item = configFiles.first(where: filter)?.item as? T else { return }
         guard let indexPath = getIndexPath(by: filter) else {
             updates(item, nil)
@@ -132,7 +132,7 @@ extension GenericCollectionViewDataSource {
     }
     
     // MARK: - Delete Methods
-    public func deleteRow(by filter: @escaping (GenericCollectionCellConfigurator)->Bool, completion: (()->())? = nil) {
+    public func deleteRow(by filter: @escaping (GenericCollectionCellConfigurator) -> Bool, completion: (() -> Void)? = nil) {
         self.collectionView.performBatchUpdates({ 
             guard let indexPath = self.getIndexPath(by: filter) else { return }
 
@@ -141,22 +141,22 @@ extension GenericCollectionViewDataSource {
             let rowsWithHeaders = self.configFiles.filter { $0.section == indexPath.section }
             self.collectionView.deleteItems(at: [indexPath])
             
-            if numberOfSections - 1 == indexPath.section && rowsWithHeaders.count == 0 && numberOfSections > 1 {
+            if numberOfSections - 1 == indexPath.section && rowsWithHeaders.isEmpty && numberOfSections > 1 {
                 self.collectionView.deleteSections(self.getIndexSetToDelete(forSection: indexPath.section))
             }
-        }) { finish in
+        }, completion: { finish in
             if !finish { return }
             completion?()
-        }
+        })
     }
     
-    public func deleteAllRowsAt(section: Int, completion: (()->())? = nil) {
+    public func deleteAllRowsAt(section: Int, completion: (() -> Void)? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
-        if configFilesToDelete.count == 0 { completion?(); return }
+        if configFilesToDelete.isEmpty { completion?(); return }
         
         var indexPaths = [IndexPath]()
-        for (index, _) in configFilesToDelete.enumerated() {
+        for index in configFilesToDelete.indices {
             indexPaths.append(IndexPath(item: index, section: section))
         }
         
@@ -169,21 +169,21 @@ extension GenericCollectionViewDataSource {
             let headersOrFootersInSection = self.configFiles.filter { $0.section == section && $0.typeCell != .cell }
             if section == self.collectionView.numberOfSections - 1 &&
                 self.collectionView.numberOfSections > 1 &&
-                headersOrFootersInSection.count == 0 {
+                headersOrFootersInSection.isEmpty {
                 self.collectionView.deleteSections(self.getIndexSetToDelete(forSection: section))
             }
             // ---
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
-    public func delete(at section: Int, andInsert configFiles: [GenericCollectionCellConfigurator], completion: (()->())? = nil) {
+    public func delete(at section: Int, andInsert configFiles: [GenericCollectionCellConfigurator], completion: (() -> Void)? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
         var indexPaths = [IndexPath]()
-        for (index, _) in configFilesToDelete.enumerated() {
+        for index in configFilesToDelete.indices {
             indexPaths.append(IndexPath(item: index, section: section))
         }
         
@@ -194,11 +194,11 @@ extension GenericCollectionViewDataSource {
             
             // Delete section if needed.
             let headersOrFootersInSection = self.configFiles.filter { $0.section == section && $0.typeCell != .cell }
-            var maxSectionInsertedOpt: Int? = nil
+            var maxSectionInsertedOpt: Int?
             
             if section == self.collectionView.numberOfSections - 1 &&
                 self.collectionView.numberOfSections > 1 &&
-                headersOrFootersInSection.count == 0 {
+                headersOrFootersInSection.isEmpty {
                 let indexSet = self.getIndexSetToDelete(forSection: section)
                 self.collectionView.deleteSections(indexSet)
                 maxSectionInsertedOpt = indexSet.first
@@ -207,13 +207,13 @@ extension GenericCollectionViewDataSource {
         
             self.insertRowsRaw(configFiles: configFiles, maxSectionInsertedOpt: maxSectionInsertedOpt)
             
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
-    public func deleteSections(greaterOrEqualTo section: Int, andInsert configFiles: [GenericCollectionCellConfigurator], completion: (()->())? = nil) {
+    public func deleteSections(greaterOrEqualTo section: Int, andInsert configFiles: [GenericCollectionCellConfigurator], completion: (() -> Void)? = nil) {
         let configFilesToDelete = self.configFiles.filter { $0.section >= section && $0.typeCell == .cell }
         
         var indexPaths = [IndexPath]()
@@ -221,7 +221,7 @@ extension GenericCollectionViewDataSource {
         for section in allSections {
             let rowsInSection = configFilesToDelete.filter { $0.section == section }
             
-            for (index, _) in rowsInSection.enumerated() {
+            for index in rowsInSection.indices {
                 indexPaths.append(IndexPath(item: index, section: section))
             }
         }
@@ -251,13 +251,13 @@ extension GenericCollectionViewDataSource {
             
             self.insertRowsRaw(configFiles: configFiles, maxSectionInsertedOpt: sectionToDeleteFrom)
             
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
-    public func deleteEverything(andInsert configFiles: [GenericCollectionCellConfigurator], completion: (()->())? = nil) {
+    public func deleteEverything(andInsert configFiles: [GenericCollectionCellConfigurator], completion: (() -> Void)? = nil) {
         let insertIndexPaths = getStandaloneIndexPaths(configFiles: configFiles.filter { $0.typeCell == .cell })
         let maxOldSection = self.configFiles.sorted { $0.section > $1.section }.first?.section ?? 0
         let maxSection = configFiles.sorted { $0.section > $1.section }.first?.section ?? 0
@@ -270,23 +270,23 @@ extension GenericCollectionViewDataSource {
             self.collectionView.insertSections(IndexSet(integersIn: 0 ... maxSection))
             self.collectionView.insertItems(at: insertIndexPaths)
             
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
     // MARK: - Insert Methods
-    public func insertRows(configFiles partialConfigFiles: [GenericCollectionCellConfigurator], maxSectionInsertedOpt: Int? = nil, completion: (()->())? = nil) {
+    public func insertRows(configFiles partialConfigFiles: [GenericCollectionCellConfigurator], maxSectionInsertedOpt: Int? = nil, completion: (() -> Void)? = nil) {
         collectionView.performBatchUpdates({ 
             self.insertRowsRaw(configFiles: partialConfigFiles, maxSectionInsertedOpt: maxSectionInsertedOpt)
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
-    public func insertRowAtLocation(locationPosition: LocationPosition, filter: @escaping (GenericCollectionCellConfigurator)->Bool, configFile partialConfigFile: GenericCollectionCellConfigurator, completion: (()->())? = nil) {
+    public func insertRowAtLocation(locationPosition: LocationPosition, filter: @escaping (GenericCollectionCellConfigurator) -> Bool, configFile partialConfigFile: GenericCollectionCellConfigurator, completion: (() -> Void)? = nil) {
         
         guard let configFile = getConfigFileWithoutDuplication(configFile: partialConfigFile) else { completion?(); return }
         guard let index = self.configFiles.firstIndex(where: filter) else { completion?(); return }
@@ -305,10 +305,10 @@ extension GenericCollectionViewDataSource {
             self.configFiles.insert(configFile, at: realIndex)
             self.collectionView.insertItems(at: [realIndexPath])
             
-        }) { completed in
+        }, completion: { completed in
             if !completed { return }
             completion?()
-        }
+        })
     }
     
     public func insertRowsAtTopOfEachSection(configFiles partialConfigFiles: [GenericCollectionCellConfigurator]) {
@@ -327,7 +327,7 @@ extension GenericCollectionViewDataSource {
                 let configFilesRowsForSection = configFiles.filter { $0.section == section && $0.typeCell == .cell }
                 let configFilesForSection = configFiles.filter { $0.section == section }
                 var indexPaths = [IndexPath]()
-                for (index, _) in configFilesRowsForSection.enumerated() {
+                for index in configFilesRowsForSection.indices {
                     indexPaths.append(IndexPath(item: index, section: section))
                 }
                 self.configFiles.insert(contentsOf: configFilesForSection, at: 0)
@@ -340,7 +340,7 @@ extension GenericCollectionViewDataSource {
         insertRowsAtTopOfEachSection(configFiles: [configFile])
     }
     
-    public func insertRow(configFile: GenericCollectionCellConfigurator, completion: (()->())? = nil) {
+    public func insertRow(configFile: GenericCollectionCellConfigurator, completion: (() -> Void)? = nil) {
         insertRows(configFiles: [configFile], completion: completion)
     }
 }
@@ -374,7 +374,7 @@ extension GenericCollectionViewDataSource {
         
         let numberOfCellsInSection = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }.count
         
-        for (index, _) in configFiles.enumerated() {
+        for index in configFiles.indices {
             indexPaths.append(IndexPath(item: index + numberOfCellsInSection, section: section))
         }
         return indexPaths
@@ -386,7 +386,7 @@ extension GenericCollectionViewDataSource {
         for section in allSections {
             let rowsInSection = configFiles.filter { $0.section == section }
             
-            for (index, _) in rowsInSection.enumerated() {
+            for index in rowsInSection.indices {
                 indexPaths.append(IndexPath(item: index, section: section))
             }
         }

@@ -11,25 +11,24 @@ import UIKit
 
 public struct GenericCollectionCellConfigurator: Hashable {
     public var typeCell: CollectionCellType
-    public var item: Any
+    public var item: GenericCellItemable
     public var section: Int
-    var sizingType: SizingType
-    var classType: AnyClass
-    var diffableIdentifier: String?
-    var accessibilityInfo: AccessibilityInfo?
+    public var sizingType: SizingType
+    public var classType: AnyClass
+    public var diffableIdentifier: String?
+    public var accessibilityInfo: AccessibilityInfo?
     
-    var className: String { return String(describing: classType) }
+    public var className: String { return String(describing: classType) }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(className)
+        hasher.combine(item.id)
     }
     
-    // TODO: NuSs >> improve this
-    public static func ==(lhs: GenericCollectionCellConfigurator, rhs: GenericCollectionCellConfigurator) -> Bool {
-        return lhs.classType == rhs.classType
+    public static func == (lhs: GenericCollectionCellConfigurator, rhs: GenericCollectionCellConfigurator) -> Bool {
+        return lhs.item.id == rhs.item.id
     }
 
-    public init(classType: AnyClass , typeCell: CollectionCellType = .cell, item: Any = "", section: Int = 0, sizingType: SizingType, diffableIdentifier: String? = nil, accessibilityInfo: AccessibilityInfo? = nil) {
+    public init(classType: AnyClass, typeCell: CollectionCellType = .cell, item: GenericCellItemable = GenericCellItem(), section: Int = 0, sizingType: SizingType, diffableIdentifier: String? = nil, accessibilityInfo: AccessibilityInfo? = nil) {
         self.classType = classType
         self.item = item
         self.section = section

@@ -88,12 +88,12 @@ public class GenericTableViewDataSource: NSObject, UITableViewDataSource {
 
 extension GenericTableViewDataSource {
     // MARK: - Util Public Methods.
-    public func getCell<T>(by filter: (GenericTableCellConfigurator)->Bool) -> T? {
+    public func getCell<T>(by filter: (GenericTableCellConfigurator) -> Bool) -> T? {
         guard let indexPath = getIndexPath(by: filter) else { return nil }
         return self.tableView.cellForRow(at: indexPath) as? T
     }
     
-    public func getIndexPath(by filter: (GenericTableCellConfigurator)->Bool) -> IndexPath? {
+    public func getIndexPath(by filter: (GenericTableCellConfigurator) -> Bool) -> IndexPath? {
         guard let configFile = configFiles.filter(filter).first else { return nil }
         
         let allRowsForSection = configFiles.filter { $0.section == configFile.section && $0.typeCell == .cell }
@@ -111,7 +111,7 @@ extension GenericTableViewDataSource {
         
         for section in 0 ... numberOfSections {
             let configFilesForSection = self.configFiles.filter { $0.typeCell == .cell && $0.section == section }
-            for (index, _) in configFilesForSection.enumerated() {
+            for index in configFilesForSection.indices {
                 indexPaths.append(IndexPath(item: index, section: section))
             }
         }
@@ -119,7 +119,7 @@ extension GenericTableViewDataSource {
         return indexPaths
     }
     
-    public func update<T,U:UITableViewCell>(cellFinder filter: @escaping (GenericTableCellConfigurator)->Bool, updates: ((T, U?) -> ())) {
+    public func update<T, U: UITableViewCell>(cellFinder filter: @escaping (GenericTableCellConfigurator) -> Bool, updates: ((T, U?) -> Void)) {
         guard let item = configFiles.first(where: filter)?.item as? T else { return }
         guard let indexPath = getIndexPath(by: filter) else {
             updates(item, nil)
@@ -150,7 +150,7 @@ extension GenericTableViewDataSource {
     }
     
     // MARK: - Delete Methods.
-    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator)->Bool) {
+    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator) -> Bool) {
         
         guard let indexPath = self.getIndexPath(by: filter) else { return }
         
@@ -162,14 +162,14 @@ extension GenericTableViewDataSource {
         let numberOfSections = self.tableView.numberOfSections
         let rowsWithHeaders = self.configFiles.filter { $0.section == indexPath.section }
         
-        if numberOfSections - 1 == indexPath.section && rowsWithHeaders.count == 0 && numberOfSections > 1 {
+        if numberOfSections - 1 == indexPath.section && rowsWithHeaders.isEmpty && numberOfSections > 1 {
             self.tableView.deleteSections(getIndexSetToDelete(forSection: indexPath.section), with: animation)
         }
         
         tableView.endUpdates()
     }
     
-    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator)->Bool, andInsert configFiles: [GenericTableCellConfigurator]) {
+    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator) -> Bool, andInsert configFiles: [GenericTableCellConfigurator]) {
         
         guard let indexPath = self.getIndexPath(by: filter) else {
             insertRows(configFiles: configFiles)
@@ -184,7 +184,7 @@ extension GenericTableViewDataSource {
         let numberOfSections = self.tableView.numberOfSections
         let rowsWithHeaders = self.configFiles.filter { $0.section == indexPath.section }
         
-        if numberOfSections - 1 == indexPath.section && rowsWithHeaders.count == 0 && numberOfSections > 1 {
+        if numberOfSections - 1 == indexPath.section && rowsWithHeaders.isEmpty && numberOfSections > 1 {
             self.tableView.deleteSections(getIndexSetToDelete(forSection: indexPath.section), with: animation)
         }
         
@@ -193,7 +193,7 @@ extension GenericTableViewDataSource {
         tableView.endUpdates()
     }
     
-    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator)->Bool, andInsert configFile: GenericTableCellConfigurator) {
+    public func deleteRow(with animation: UITableView.RowAnimation = .automatic, filter: @escaping (GenericTableCellConfigurator) -> Bool, andInsert configFile: GenericTableCellConfigurator) {
         
         deleteRow(with: animation, filter: filter, andInsert: [configFile])
     }
@@ -201,10 +201,10 @@ extension GenericTableViewDataSource {
     public func deleteAllRowsAt(section: Int, with animation: UITableView.RowAnimation = .automatic) {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
-         if configFilesToDelete.count == 0 { return }
+         if configFilesToDelete.isEmpty { return }
         
         var indexPaths = [IndexPath]()
-        for (index, _) in configFilesToDelete.enumerated() {
+        for index in configFilesToDelete.indices {
             indexPaths.append(IndexPath(item: index, section: section))
         }
         
@@ -218,7 +218,7 @@ extension GenericTableViewDataSource {
         
         if section == self.tableView.numberOfSections - 1 &&
             self.tableView.numberOfSections > 1 &&
-            headersOrFootersInSection.count == 0 {
+            headersOrFootersInSection.isEmpty {
             self.tableView.deleteSections(getIndexSetToDelete(forSection: section), with: animation)
         }
         // ---
@@ -230,7 +230,7 @@ extension GenericTableViewDataSource {
         let configFilesToDelete = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }
         
         var indexPaths = [IndexPath]()
-        for (index, _) in configFilesToDelete.enumerated() {
+        for index in configFilesToDelete.indices {
             indexPaths.append(IndexPath(item: index, section: section))
         }
         
@@ -241,11 +241,11 @@ extension GenericTableViewDataSource {
         
         // Delete section if needed.
         let headersOrFootersInSection = self.configFiles.filter { $0.section == section && $0.typeCell != .cell }
-        var maxSectionInsertedOpt: Int? = nil
+        var maxSectionInsertedOpt: Int?
         
         if section == self.tableView.numberOfSections - 1 &&
             self.tableView.numberOfSections > 1 &&
-            headersOrFootersInSection.count == 0 {
+            headersOrFootersInSection.isEmpty {
             let indexSet = getIndexSetToDelete(forSection: section)
             self.tableView.deleteSections(indexSet, with: animation)
             maxSectionInsertedOpt = indexSet.first
@@ -293,7 +293,7 @@ extension GenericTableViewDataSource {
             let configFilesRowsForSection = configFiles.filter { $0.section == section && $0.typeCell == .cell }
             let configFilesForSection = configFiles.filter { $0.section == section }
             var indexPaths = [IndexPath]()
-            for (index, _) in configFilesRowsForSection.enumerated() {
+            for index in configFilesRowsForSection.indices {
                 indexPaths.append(IndexPath(item: index, section: section))
             }
             self.configFiles.insert(contentsOf: configFilesForSection, at: 0)
@@ -337,7 +337,7 @@ extension GenericTableViewDataSource {
         
         let numberOfCellsInSection = self.configFiles.filter { $0.section == section && $0.typeCell == .cell }.count
         
-        for (index, _) in configFiles.enumerated() {
+        for index in configFiles.indices {
             indexPaths.append(IndexPath(item: index + numberOfCellsInSection, section: section))
         }
         return indexPaths
@@ -349,7 +349,7 @@ extension GenericTableViewDataSource {
         for section in allSections {
             let rowsInSection = configFiles.filter { $0.section == section }
             
-            for (index, _) in rowsInSection.enumerated() {
+            for index in rowsInSection.indices {
                 indexPaths.append(IndexPath(item: index, section: section))
             }
         }

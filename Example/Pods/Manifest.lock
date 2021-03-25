@@ -2,8 +2,10 @@ PODS:
   - Nimble (8.0.9)
   - Quick (2.2.1)
   - SnazzyAccessibility (0.1.4)
-  - SnazzyList (0.1.0):
+  - SnazzyList (1.0.0):
     - SnazzyAccessibility (= 0.1.4)
+    - SwiftLint
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Nimble (~> 8.0.7)
@@ -15,6 +17,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - SnazzyAccessibility
+    - SwiftLint
 
 EXTERNAL SOURCES:
   SnazzyList:
@@ -24,8 +27,9 @@ SPEC CHECKSUMS:
   Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
   SnazzyAccessibility: 1ccff42933e39cf9567477c8c2ed370dc0ff6017
-  SnazzyList: 56174e30c7c7e49fe4fbced0dbe6b02b3afabb3f
+  SnazzyList: 0cc474e22c98e0da49ce4096e54d37379216fca0
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 40f31a85953578d54d26fabbec51e469025bb1ae
+PODFILE CHECKSUM: c0bcca0cb7d0c9423032255f43ec7866f119162d
 
 COCOAPODS: 1.10.1

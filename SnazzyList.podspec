@@ -24,4 +24,5 @@ Pod::Spec.new do |s|
   s.source_files = 'SnazzyList/Classes/**/*'
   s.frameworks = 'UIKit'
   s.dependency 'SnazzyAccessibility', '0.1.4'
+  s.dependency 'SwiftLint'
 end

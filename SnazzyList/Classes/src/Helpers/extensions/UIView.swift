@@ -56,7 +56,7 @@ extension UIView {
 //    }
     
     func animateBorderColor(toColor: CGColor, duration: Double) {
-        let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
         animation.fromValue = layer.borderColor
         animation.toValue = toColor
         animation.duration = duration
@@ -105,7 +105,7 @@ extension UIView {
     func getTopAnchor() -> NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.topAnchor
-        }else{
+        } else {
             return self.topAnchor
         }
     }
@@ -113,7 +113,7 @@ extension UIView {
     func getBottomAnchor() -> NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.bottomAnchor
-        }else{
+        } else {
             return self.bottomAnchor
         }
     }
@@ -121,7 +121,7 @@ extension UIView {
     func getRightAnchor() -> NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.rightAnchor
-        }else{
+        } else {
             return self.rightAnchor
         }
     }
@@ -129,7 +129,7 @@ extension UIView {
     func getLeftAnchor() -> NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.leftAnchor
-        }else{
+        } else {
             return self.leftAnchor
         }
     }
@@ -172,7 +172,7 @@ extension UIView {
     func bind(withConstant constant: CGFloat, boundType: BoundsType) {
         if #available(iOS 11.0, *) {
             self.bindFrameToSafeLayoutArea(withConstant: constant, boundType: boundType)
-        }else{
+        } else {
             self.bindFrameToSuperviewBounds(withConstant: constant, boundType: boundType)
         }
     }

@@ -115,7 +115,7 @@ public class GenericCollectionViewDelegate: NSObject, UICollectionViewDelegate, 
     }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if dataSource.configFiles.count == 0 { return }
+        if dataSource.configFiles.isEmpty { return }
         
         if checkIfReachLastCellInCollection(indexPath: indexPath) {
             actions?.reachLastCellInCollection?()
@@ -165,7 +165,7 @@ public class GenericCollectionViewDelegate: NSObject, UICollectionViewDelegate, 
     private var minimumItemSpacingForSection: [Int: CGFloat]?
 }
 
-//MARK: - Util Public Methods
+// MARK: - Util Public Methods
 extension GenericCollectionViewDelegate {
     func cellOriginY(cell filter: @escaping (GenericCollectionCellConfigurator) -> Bool) -> CGFloat? {
         guard let index = dataSource.getIndexPath(by: filter) else { return nil }
@@ -195,7 +195,7 @@ extension GenericCollectionViewDelegate {
 // MARK: - Private Inner Framework Methods
 extension GenericCollectionViewDelegate {
     private func checkIfReachLastCellInCollection(indexPath: IndexPath) -> Bool {
-        //Returning false because the user doesn't want to know if reached last cell in collection.
+        // Returning false because the user doesn't want to know if reached last cell in collection.
         if actions?.reachLastCellInCollection == nil && actions?.reachLastCellInCollectionWithIndexPath == nil { return false }
         
         let maxSection = dataSource.configFiles.map { $0.section }.sorted { $0 > $1 }.first
@@ -252,7 +252,7 @@ extension GenericCollectionViewDelegate: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let callback = actions?.didEndScrollingAtIndex else { return }
         if !scrollView.isPagingEnabled { return }
-        if dataSource.configFiles.count == 0 { return }
+        if dataSource.configFiles.isEmpty { return }
         guard let flowLayout = dataSource.collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         
         let fullSize = flowLayout.scrollDirection == .horizontal ?

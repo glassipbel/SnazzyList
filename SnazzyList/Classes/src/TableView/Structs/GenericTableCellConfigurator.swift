@@ -11,23 +11,23 @@ import UIKit
 
 public struct GenericTableCellConfigurator: Hashable {
     public var typeCell: TableCellType
-    public var item: Any
+    public var item: GenericCellItemable
     public var section: Int
-    var sizingType: TableSizingType
+    public var sizingType: TableSizingType
     public var classType: AnyClass
-    var accessibilityInfo: AccessibilityInfo?
+    public var accessibilityInfo: AccessibilityInfo?
     
-    var className: String { return String(describing: classType) }
+    public var className: String { return String(describing: classType) }
     
     public func hash(into hasher: inout Hasher) {
-        hasher.combine(className)
+        hasher.combine(item.id)
+    }
+
+    public static func == (lhs: GenericTableCellConfigurator, rhs: GenericTableCellConfigurator) -> Bool {
+        return lhs.item.id == rhs.item.id
     }
     
-    public static func ==(lhs: GenericTableCellConfigurator, rhs: GenericTableCellConfigurator) -> Bool {
-        return lhs.classType == rhs.classType
-    }
-    
-    public init(classType: AnyClass, typeCell: TableCellType = .cell, item: Any = "", section: Int = 0, sizingType: TableSizingType = .automatic, accessibilityInfo: AccessibilityInfo? = nil) {
+    public init(classType: AnyClass, typeCell: TableCellType = .cell, item: GenericCellItemable = GenericCellItem(), section: Int = 0, sizingType: TableSizingType = .automatic, accessibilityInfo: AccessibilityInfo? = nil) {
         self.classType = classType
         self.item = item
         self.section = section
