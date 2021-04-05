@@ -175,10 +175,12 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnazzyAccessibility/SnazzyAccessibility.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnazzyList/SnazzyList.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnazzyAccessibility/SnazzyAccessibility.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnazzyList/SnazzyList.framework"
 fi
