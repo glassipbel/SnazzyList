@@ -9,7 +9,6 @@ import SnazzyAccessibility
 import UIKit
 
 final public class TableViewSharedCellsController {
-
     public init() {}
     
     // MARK: - Separator cells -
@@ -167,191 +166,89 @@ final public class TableViewSharedCellsController {
     /// This cell will fit the cases were you need to show TextField for your user to input data with a title on top.
     /// We also have another type of cell TextFieldFormattedInputTableCell that may fit your needs better.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/FormEntryTextTitledTableCell.png?raw=true
-    func getFormEntryTextTitledCellConfigFile(section: Int, identifier: Any, isEditable: Bool = true, titleFont: UIFont, titleColor: UIColor, entryTextFont: UIFont, entryTextColor: UIColor, entryTextPlaceholder: String, entryTextPlaceholderColor: UIColor, underlineColor: UIColor, maxLength: Int? = nil, keyboardType: UIKeyboardType = .default, autocapitalizationType: UITextAutocapitalizationType = .words, autocorrectionType: UITextAutocorrectionType = .no, returnKeyType: UIReturnKeyType = .default, shouldHideKeyboard: Bool = false, provider: FormEntryTextTitledTableProvider?, actions: FormEntryTextTitledTableActions?) -> GenericTableCellConfigurator {
+    public func getFormEntryTextTitledCellConfigFile(section: Int, identifier: Any, isEditable: Bool = true, titleFont: UIFont, titleColor: UIColor, entryTextFont: UIFont, entryTextColor: UIColor, entryTextPlaceholder: String, entryTextPlaceholderColor: UIColor, underlineColor: UIColor, maxLength: Int? = nil, keyboardType: UIKeyboardType = .default, autocapitalizationType: UITextAutocapitalizationType = .words, autocorrectionType: UITextAutocorrectionType = .no, returnKeyType: UIReturnKeyType = .default, shouldHideKeyboard: Bool = false, provider: FormEntryTextTitledTableProvider?, actions: FormEntryTextTitledTableActions?) -> GenericTableCellConfigurator {
            let item = FormEntryTextTitledTableCellConfigFile(identifier: identifier, isEditable: isEditable, titleFont: titleFont, titleColor: titleColor, entryTextFont: entryTextFont, entryTextColor: entryTextColor, entryTextPlaceholder: entryTextPlaceholder, entryTextPlaceholderColor: entryTextPlaceholderColor, underlineColor: underlineColor, maxLength: maxLength, keyboardType: keyboardType, autocapitalizationType: autocapitalizationType, autocorrectionType: autocorrectionType, returnKeyType: returnKeyType, shouldHideKeyboard: shouldHideKeyboard, provider: provider, actions: actions)
 
-           return GenericTableCellConfigurator(
-               classType: FormEntryTextTitledTableCell.self,
-               item: item,
-               section: section,
-               sizingType: .automatic
-           )
+           return GenericTableCellConfigurator(classType: FormEntryTextTitledTableCell.self, item: item, section: section, sizingType: .automatic)
        }
     
     /// This cell will fit the cases were you need to show a document like style for your user to sign.
     /// The behavior may be a constraint, so just confirm with the PM that this is the behavior that they want to be sure.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/DocumentationRepresentationTableCell.png?raw=true
-    func getDocumentationRepresentationTableCellConfigFile(section: Int, documentIdentifier: String, signedTitleText: String, notSignedTitleText: String, signedReviewText: String, notSignedReviewText: String, signedTitleColor: UIColor, notSignedTitleColor: UIColor, signedBackgroundColor: UIColor, notSignedBackgroundColor: UIColor, descriptionColor: UIColor, reviewColor: UIColor, containerBorderColor: UIColor, shadowColor: UIColor, titleFont: UIFont, descriptionFont: UIFont, reviewFont: UIFont, signedDocumentImage: UIImage?, notSignedDocumentImage: UIImage?, provider: DocumentationRepresentationTableProvider?, actions: DocumentationRepresentationTableActions?) -> GenericTableCellConfigurator {
+    public func getDocumentationRepresentationTableCellConfigFile(section: Int, documentIdentifier: String, signedTitleText: String, notSignedTitleText: String, signedReviewText: String, notSignedReviewText: String, signedTitleColor: UIColor, notSignedTitleColor: UIColor, signedBackgroundColor: UIColor, notSignedBackgroundColor: UIColor, descriptionColor: UIColor, reviewColor: UIColor, containerBorderColor: UIColor, shadowColor: UIColor, titleFont: UIFont, descriptionFont: UIFont, reviewFont: UIFont, signedDocumentImage: UIImage?, notSignedDocumentImage: UIImage?, provider: DocumentationRepresentationTableProvider?, actions: DocumentationRepresentationTableActions?) -> GenericTableCellConfigurator {
         let item = DocumentationRepresentationTableCellConfigFile(documentIdentifier: documentIdentifier, signedTitleText: signedTitleText, notSignedTitleText: notSignedTitleText, signedReviewText: signedReviewText, notSignedReviewText: notSignedReviewText, signedTitleColor: signedTitleColor, notSignedTitleColor: notSignedTitleColor, signedBackgroundColor: signedBackgroundColor, notSignedBackgroundColor: notSignedBackgroundColor, descriptionColor: descriptionColor, reviewColor: reviewColor, containerBorderColor: containerBorderColor, shadowColor: shadowColor, titleFont: titleFont, descriptionFont: descriptionFont, reviewFont: reviewFont, signedDocumentImage: signedDocumentImage, notSignedDocumentImage: notSignedDocumentImage, provider: provider, actions: actions)
         
-        return GenericTableCellConfigurator(
-            classType: DocumentationRepresentationTableCell.self,
-            item: item,
-            section: section
-        )
+        return GenericTableCellConfigurator(classType: DocumentationRepresentationTableCell.self, item: item, section: section)
     }
     
     /// This cell will fit the cases were you need to show a dropdown, the dropdown can be full screen or partial screen depending on the title.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/DropdownOptionSelectionTableCell.png?raw=true
-    func getDropdownOptionSelectionTableCellConfigFile(identifier: Any, title: String, titleColor: UIColor, titleFont: UIFont, optionColor: UIColor, optionFont: UIFont, downArrowImage: UIImage?, titleLineColor: UIColor, isEditable: Bool, adjustableToTitle: Bool, section: Int, provider: DropdownOptionSelectionTableProvider?, actions: DropdownOptionSelectionTableActions?) -> GenericTableCellConfigurator {
+    public func getDropdownOptionSelectionTableCellConfigFile(identifier: Any, title: String, titleColor: UIColor, titleFont: UIFont, optionColor: UIColor, optionFont: UIFont, downArrowImage: UIImage?, titleLineColor: UIColor, isEditable: Bool, adjustableToTitle: Bool, section: Int, provider: DropdownOptionSelectionTableProvider?, actions: DropdownOptionSelectionTableActions?) -> GenericTableCellConfigurator {
         let item = DropdownOptionSelectionTableCellConfigFile(identifier: identifier, title: title, titleColor: titleColor, titleFont: titleFont, optionColor: optionColor, optionFont: optionFont, downArrowImage: downArrowImage, titleLineColor: titleLineColor, isEditable: isEditable, adjustableToTitle: adjustableToTitle, provider: provider, actions: actions)
         
-        return GenericTableCellConfigurator(
-            classType: DropdownOptionSelectionTableCell.self,
-            item: item,
-            section: section,
-            sizingType: .specificHeight(84)
-        )
+        return GenericTableCellConfigurator(classType: DropdownOptionSelectionTableCell.self, item: item, section: section, sizingType: .specificHeight(84))
     }
-    
-    /// This cell will fit the cases were you need to show a gallery of images.
-    /// The size can be define for yours needs, but you will need to calculate it depending on the size of the images that you will show in it.
-    /// The height should be the height of the image inside * the number of rows + the separation between them + the top + bottom gap.
-    /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/ImageGalleryTableCell.png?raw=true
-//    func getImageGalleryTableCellConfigFile(section: Int, height: CGFloat, provider: ImageGalleryTableProvider?, actions: ImageGalleryTableActions?) -> GenericTableCellConfigurator {
-//        let item = ImageGalleryTableCellConfigFile(provider: provider, actions: actions)
-//
-//        return GenericTableCellConfigurator(
-//            classType: ImageGalleryTableCell.self,
-//            item: item,
-//            section: section,
-//            sizingType: .specificHeight(height)
-//        )
-//    }
-    
     
     /// This cell will fit the cases were you need to show a slider for selecting between numbers, the range is defined by you.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/SliderTableCell.png?raw=true
-//    func getSliderTableCell(section: Int, identifier: Any, isEditable: Bool = true, provider: SliderTableProvider?, actions: SliderTableActions?) -> GenericTableCellConfigurator {
-//        let item = SliderTableCellConfigFile(identifier: identifier, isEditable: isEditable, provider: provider, actions: actions)
-//
-//        return GenericTableCellConfigurator(
-//            classType: SliderTableCell.self,
-//            item: item,
-//            section: section
-//        )
-//    }
+    public func getSliderTableCell(section: Int, identifier: Any, isEditable: Bool = true, leftNumberFont: UIFont, leftNumberColor: UIColor, rightNumberFont: UIFont, rightNumberColor: UIColor, resultNumberFont: UIFont, resultNumberColor: UIColor, resultUnderlineColor: UIColor, gradientSliderColors: [UIColor], provider: SliderTableProvider?, actions: SliderTableActions?) -> GenericTableCellConfigurator {
+        let item = SliderTableCellConfigFile(identifier: identifier, isEditable: isEditable, leftNumberFont: leftNumberFont, leftNumberColor: leftNumberColor, rightNumberFont: rightNumberFont, rightNumberColor: rightNumberColor, resultNumberFont: resultNumberFont, resultNumberColor: resultNumberColor, resultUnderlineColor: resultUnderlineColor, gradientSliderColors: gradientSliderColors, provider: provider, actions: actions)
+
+        return GenericTableCellConfigurator(classType: SliderTableCell.self, item: item, section: section)
+    }
     
     /// This cell will fit the cases were you need to show stars for displaying some kind of ratings from 1 to 5.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/StarsRateTableCell.png?raw=true
-//    func getStarsRateTableCell(section: Int, identifier: Any, provider: StarsRateTableCellProvider?, actions: StarsRateTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = StarsRateTableCellConfigFile(identifier: identifier, provider: provider, actions: actions)
-//
-//        return GenericTableCellConfigurator(
-//            classType: StarsRateTableCell.self,
-//            item: item,
-//            section: section
-//        )
-//    }
-    
+    public func getStarsRateTableCell(section: Int, identifier: Any, starEmptyImage: UIImage?, starMoreThan3SelectedImage: UIImage?, starLessThan3SelectedImage: UIImage?, provider: StarsRateTableCellProvider?, actions: StarsRateTableCellActions?) -> GenericTableCellConfigurator {
+        let item = StarsRateTableCellConfigFile(identifier: identifier, starEmptyImage: starEmptyImage, starMoreThan3SelectedImage: starMoreThan3SelectedImage, starLessThan3SelectedImage: starLessThan3SelectedImage, provider: provider, actions: actions)
+
+        return GenericTableCellConfigurator(classType: StarsRateTableCell.self, item: item, section: section)
+    }
     
     /// This cell will fit the cases were you need to show a double entry text for your user.
     /// The behavior of this cell can be really specific and it may not match your requirements, be sure that this cell behavior is a good fit for your needs before using it.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/FormDoubleEntryTableCell.png?raw=true
-    func getFormDoubleEntryTableCell(section: Int, leftIdentifier: Any, rightIdentifier: Any, leftTextFormat: String?, leftKeyboardType: UIKeyboardType, leftAutocapitalizationType: UITextAutocapitalizationType, leftAllowedSymbolRegex: String?, leftTitleFont: UIFont, leftTitleColor: UIColor, leftInputTextColor: UIColor, leftInputTextFont: UIFont, leftAddText: String, leftAddTextColor: UIColor, leftAddTextFont: UIFont, leftAttentionImage: UIImage?, leftContainerBorderColor: UIColor, rightTextFormat: String?, rightKeyboardType: UIKeyboardType, rightAutocapitalizationType: UITextAutocapitalizationType, rightAllowedSymbolRegex: String?, rightTitleFont: UIFont, rightTitleColor: UIColor, rightInputTextColor: UIColor, rightInputTextFont: UIFont, rightAddTextColor: UIColor, rightAddText: String, rightAddTextFont: UIFont, rightAttencionImage: UIImage?, rightContainerBorderColor: UIColor, shouldShowBottomLine: Bool, middleLineColor: UIColor, underlineColor: UIColor, accessibilityInfo: AccessibilityInfo? = nil, provider: FormDoubleEntryTableCellProvider?, actions: FormDoubleEntryTableCellActions?) -> GenericTableCellConfigurator {
+    public func getFormDoubleEntryTableCell(section: Int, leftIdentifier: Any, rightIdentifier: Any, leftTextFormat: String?, leftKeyboardType: UIKeyboardType, leftAutocapitalizationType: UITextAutocapitalizationType, leftAllowedSymbolRegex: String?, leftTitleFont: UIFont, leftTitleColor: UIColor, leftInputTextColor: UIColor, leftInputTextFont: UIFont, leftAddText: String, leftAddTextColor: UIColor, leftAddTextFont: UIFont, leftAttentionImage: UIImage?, leftContainerBorderColor: UIColor, rightTextFormat: String?, rightKeyboardType: UIKeyboardType, rightAutocapitalizationType: UITextAutocapitalizationType, rightAllowedSymbolRegex: String?, rightTitleFont: UIFont, rightTitleColor: UIColor, rightInputTextColor: UIColor, rightInputTextFont: UIFont, rightAddTextColor: UIColor, rightAddText: String, rightAddTextFont: UIFont, rightAttencionImage: UIImage?, rightContainerBorderColor: UIColor, shouldShowBottomLine: Bool, middleLineColor: UIColor, underlineColor: UIColor, accessibilityInfo: AccessibilityInfo? = nil, provider: FormDoubleEntryTableCellProvider?, actions: FormDoubleEntryTableCellActions?) -> GenericTableCellConfigurator {
         let item = FormDoubleEntryTableCellConfigFile(leftIdentifier: leftIdentifier, rightIdentifier: rightIdentifier, leftTextFormat: leftTextFormat, leftKeyboardType: leftKeyboardType, leftAutocapitalizationType: leftAutocapitalizationType, leftAllowedSymbolRegex: leftAllowedSymbolRegex, leftTitleFont: leftTitleFont, leftTitleColor: leftTitleColor, leftInputTextColor: leftInputTextColor, leftInputTextFont: leftInputTextFont, leftAddText: leftAddText, leftAddTextColor: leftAddTextColor, leftAddTextFont: leftAddTextFont, leftAttentionImage: leftAttentionImage, leftContainerBorderColor: leftContainerBorderColor, rightTextFormat: rightTextFormat, rightKeyboardType: rightKeyboardType, rightAutocapitalizationType: rightAutocapitalizationType, rightAllowedSymbolRegex: rightAllowedSymbolRegex, rightTitleFont: rightTitleFont, rightTitleColor: rightTitleColor, rightInputTextColor: rightInputTextColor, rightInputTextFont: rightInputTextFont, rightAddTextColor: rightAddTextColor, rightAddText: rightAddText, rightAddTextFont: rightAddTextFont, rightAttencionImage: rightAttencionImage, rightContainerBorderColor: rightContainerBorderColor, shouldShowBottomLine: shouldShowBottomLine, middleLineColor: middleLineColor, underlineColor: underlineColor, provider: provider, actions: actions)
         
-        return GenericTableCellConfigurator(
-            classType: FormDoubleEntryTableCell.self,
-            item: item,
-            section: section,
-            accessibilityInfo: accessibilityInfo
-        )
+        return GenericTableCellConfigurator(classType: FormDoubleEntryTableCell.self, item: item, section: section, accessibilityInfo: accessibilityInfo)
     }
     
     /// This cell will fit the cases were you need to show a single entry text for your user.
     /// The behavior of this cell can be really specific and it may not match your requirements, be sure that this cell behavior is a good fit for your needs before using it.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/FormDoubleEntryTableCell.png?raw=true
-    func getFormSingleEntryTableCell(section: Int, identifier: Any, titleFont: UIFont, titleColor: UIColor, inputTextFont: UIFont, inputTextColor: UIColor, attentionImage: UIImage?, addText: String, addTextColor: UIColor, addTextFont: UIFont, textFormat: String?, keyboardType: UIKeyboardType, autocapitalizationType: UITextAutocapitalizationType, allowedSymbolRegex: String?, accessibilityInfo: AccessibilityInfo? = nil, shouldShowBottomLine: Bool, underlineColor: UIColor = .clear, containerEditingColor: UIColor, containerNotEditingColor: UIColor, provider: FormSingleEntryTableCellProvider?, actions: FormSingleEntryTableCellActions?) -> GenericTableCellConfigurator {
+    public func getFormSingleEntryTableCell(section: Int, identifier: Any, titleFont: UIFont, titleColor: UIColor, inputTextFont: UIFont, inputTextColor: UIColor, attentionImage: UIImage?, addText: String, addTextColor: UIColor, addTextFont: UIFont, textFormat: String?, keyboardType: UIKeyboardType, autocapitalizationType: UITextAutocapitalizationType, allowedSymbolRegex: String?, accessibilityInfo: AccessibilityInfo? = nil, shouldShowBottomLine: Bool, underlineColor: UIColor = .clear, containerEditingColor: UIColor, containerNotEditingColor: UIColor, provider: FormSingleEntryTableCellProvider?, actions: FormSingleEntryTableCellActions?) -> GenericTableCellConfigurator {
         let item = FormSingleEntryTableCellConfigFile(identifier: identifier, titleFont: titleFont, titleColor: titleColor, inputTextFont: inputTextFont, inputTextColor: inputTextColor, attentionImage: attentionImage, addText: addText, addTextColor: addTextColor, addTextFont: addTextFont, textFormat: textFormat, keyboardType: keyboardType, autocapitalizationType: autocapitalizationType, allowedSymbolRegex: allowedSymbolRegex, shouldShowBottomLine: shouldShowBottomLine, underlineColor: underlineColor, containerEditingColor: containerEditingColor, containerNotEditingColor: containerNotEditingColor, provider: provider, actions: actions)
         
-        return GenericTableCellConfigurator(
-            classType: FormSingleEntryTableCell.self,
-            item: item,
-            section: section,
-            accessibilityInfo: accessibilityInfo
-        )
+        return GenericTableCellConfigurator(classType: FormSingleEntryTableCell.self, item: item, section: section, accessibilityInfo: accessibilityInfo)
     }
     
     /// This cell will fit the cases were you need to show a cell with an icon, text and a detail arrow like in the screenshot.
     /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/LeftIconWithTextAndArrowTableCell.png?raw=true
-//    func getLeftIconWithTextAndArrowTableCell(section: Int, identifier: Any, title: String, icon: UIImage, backgroundColor: UIColor = .white, actions: LeftIconWithTextAndArrowTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = LeftIconWithTextAndArrowTableCellConfigFile(identifier: identifier, title: title, icon: icon, actions: actions, backgroundColor: backgroundColor)
-//
-//        return GenericTableCellConfigurator(classType: LeftIconWithTextAndArrowTableCell.self, item: item, section: section)
-//    }
-    
-    
-    
-    
+    public func getLeftIconWithTextAndArrowTableCell(section: Int, identifier: Any, title: String, icon: UIImage, backgroundColor: UIColor = .white, titleFont: UIFont, titleColor: UIColor, arrowImage: UIImage?, actions: LeftIconWithTextAndArrowTableCellActions?) -> GenericTableCellConfigurator {
+        let item = LeftIconWithTextAndArrowTableCellConfigFile(identifier: identifier, title: title, icon: icon, backgroundColor: backgroundColor, titleFont: titleFont, titleColor: titleColor, arrowImage: arrowImage, actions: actions)
 
-//    
-//    /// This cell will fit the cases were you need to enter values for the readings using a textfield as an input.
-//    func getReadingTextInputTableCell(section: Int, identifier: Any, icon: UIImage, name: String, isReadOnly: Bool, backgroundColor: UIColor, valueName: String, valueNameWidth: CGFloat?, minValue: Double?, maxValue: Double?, allowDecimal: Bool, inputTextfieldWidth: CGFloat = 86.0, isEditable: Bool = true, provider: ReadingTextInputTableCellProvider?, actions: ReadingTextInputTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = ReadingTextInputTableCellConfigFile(identifier: identifier, icon: icon, name: name, isReadOnly: isReadOnly, backgroundColor: backgroundColor, valueName: valueName, valueNameWidth: valueNameWidth, minValue: minValue, maxValue: maxValue, allowDecimal: allowDecimal, inputTextfieldWidth: inputTextfieldWidth, isEditable: isEditable, provider: provider, actions: actions)
-//        
-//        return GenericTableCellConfigurator(classType: ReadingTextInputTableCell.self, item: item, section: section)
-//    }
-//    
-//    /// This cell will fit the cases were you need to enter numeric values for the readings.
-//    func getReadingNumericInputTableCell(section: Int, identifier: Any, icon: UIImage, name: String, backgroundColor: UIColor, provider: ReadingNumericInputTableCellProvider?, actions: ReadingNumericInputTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = ReadingNumericInputTableCellConfigFile(identifier: identifier, icon: icon, name: name, backgroundColor: backgroundColor, provider: provider, actions: actions)
-//        
-//        return GenericTableCellConfigurator(classType: ReadingNumericInputTableCell.self, item: item, section: section)
-//    }
-//    
-//    /// This cell will fit the cases were you need to show a tab with 2 buttons.
-//    /// The font, the titles and the colors can be customized.
-//    func getTabDoubleSelectionTableCell(section: Int, identifier: Any?, leftTitle: String, rightTitle: String, buttonsFont: UIFont, buttonsTitleColor: UIColor, buttonsBackgroundColor: UIColor, buttonsSelectedFont: UIFont, buttonsSelectedTitleColor: UIColor, buttonsSelectedBackgroundColor: UIColor, spacingBetweenButtons: CGFloat = 40.0, provider: TabDoubleSelectionTableCellProvider?, actions: TabDoubleSelectionTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = TabDoubleSelectionTableCellConfigFile(identifier: identifier, leftTitle: leftTitle, rightTitle: rightTitle, buttonsFont: buttonsFont, buttonsTitleColor: buttonsTitleColor, buttonsBackgroundColor: buttonsBackgroundColor, buttonsSelectedFont: buttonsSelectedFont, buttonsSelectedTitleColor: buttonsSelectedTitleColor, buttonsSelectedBackgroundColor: buttonsSelectedBackgroundColor, spacingBetweenButtons: spacingBetweenButtons, provider: provider, actions: actions)
-//        return GenericTableCellConfigurator(classType: TabDoubleSelectionTableCell.self, item: item, section: section)
-//    }
-//    
-
-//    
-//    /// This cell will fit the cases were you need to show the days of the week so the user can select multiple days.
-//    func getWeekSelectionTableCell(section: Int, identifier: Any? = nil, provider: WeekSelectionTableCellProvider?, actions: WeekSelectionTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = WeekSelectionTableCellConfigFile(identifier: identifier, provider: provider, actions: actions)
-//        
-//        return GenericTableCellConfigurator(classType: WeekSelectionTableCell.self, item: item, section: section)
-//    }
+        return GenericTableCellConfigurator(classType: LeftIconWithTextAndArrowTableCell.self, item: item, section: section)
+    }
     
-//
-
-//    
-//    /// This cell will fit the cases were you need to show multiline text with title, description and checkbox icon with selected and  deselected  states
-//    /// also  rounded border is shown if text is selectable
-//    func getSelectableTextWithDescriptionTableCell(section: Int, identifier: Any, title: String, description: String, provider: SelectableTextWithDescriptionTableCellProvider?, actions: SelectableTextWithDescriptionTableCellActions?) -> GenericTableCellConfigurator {
-//        let item = SelectableTextWithDescriptionTableCellConfigFile(identifier: identifier, title: title, description: description, provider: provider, actions: actions)
-//        
-//        return GenericTableCellConfigurator(classType: SelectableTextWithDescriptionTableCell.self, item: item, section: section)
-//    }
-//
-//    func getSwitchTableCell(
-//        section: Int,
-//        identifier: Any,
-//        leftTitle: String,
-//        titleFont: UIFont,
-//        textColor: UIColor,
-//        switchBackgroundColor: UIColor,
-//        provider: SwitchTableCellProvider?,
-//        actions: SwitchTableCellActions?
-//    ) -> GenericTableCellConfigurator {
-//        return GenericTableCellConfigurator(
-//            classType: SwitchTableCell.self,
-//            typeCell: .cell,
-//            item: SwitchTableCellConfigFile(
-//                identifier: identifier,
-//                leftTitle: leftTitle,
-//                titleFont: titleFont,
-//                textColor: textColor,
-//                switchBackgroundColor: switchBackgroundColor,
-//                provider: provider,
-//                actions: actions
-//            ),
-//            section: section
-//        )
-//    }
-//    
+    /// This cell will fit the cases were you need to enter values for the readings using a textfield as an input.
+    public func getReadingTextInputTableCell(section: Int, identifier: Any, icon: UIImage, name: String, nameColor: UIColor, nameFont: UIFont, isReadOnly: Bool, backgroundColor: UIColor, valueColor: UIColor, valueFont: UIFont, valueName: String, valueNameWidth: CGFloat?, valueNameFont: UIFont, valueNameColor: UIColor, valueTextFont: UIFont, valueTextEditableColor: UIColor, valueTextNotEditableColor: UIColor, valueTextBackgroundColor: UIColor, valueTextBorderColor: UIColor, minValue: Double?, maxValue: Double?, allowDecimal: Bool, inputTextfieldWidth: CGFloat = 86.0, isEditable: Bool = true, provider: ReadingTextInputTableCellProvider?, actions: ReadingTextInputTableCellActions?) -> GenericTableCellConfigurator {
+        let item = ReadingTextInputTableCellConfigFile(identifier: identifier, icon: icon, name: name, nameColor: nameColor, nameFont: nameFont, isReadOnly: isReadOnly, backgroundColor: backgroundColor, valueColor: valueColor, valueFont: valueFont, valueName: valueName, valueNameWidth: valueNameWidth, valueNameFont: valueNameFont, valueNameColor: valueNameColor, valueTextFont: valueTextFont, valueTextEditableColor: valueTextEditableColor, valueTextNotEditableColor: valueTextNotEditableColor, valueTextBackgroundColor: valueTextBackgroundColor, valueTextBorderColor: valueTextBorderColor, minValue: minValue, maxValue: maxValue, allowDecimal: allowDecimal, inputTextfieldWidth: inputTextfieldWidth, isEditable: isEditable, provider: provider, actions: actions)
+        
+        return GenericTableCellConfigurator(classType: ReadingTextInputTableCell.self, item: item, section: section)
+    }
     
+    /// This cell will fit the cases were you need to enter numeric values for the readings.
+    public func getReadingNumericInputTableCell(section: Int, identifier: Any, icon: UIImage, name: String, backgroundColor: UIColor, textColor: UIColor, nameFont: UIFont, inputFont: UIFont, provider: ReadingNumericInputTableCellProvider?, actions: ReadingNumericInputTableCellActions?) -> GenericTableCellConfigurator {
+        let item = ReadingNumericInputTableCellConfigFile(identifier: identifier, icon: icon, name: name, backgroundColor: backgroundColor, textColor: textColor, nameFont: nameFont, inputFont: inputFont, provider: provider, actions: actions)
+        
+        return GenericTableCellConfigurator(classType: ReadingNumericInputTableCell.self, item: item, section: section)
+    }
+    
+    /// This cell will fit the cases were you need to show a tab with 2 buttons.
+    /// The font, the titles and the colors can be customized.
+    public func getTabDoubleSelectionTableCell(section: Int, identifier: Any?, leftTitle: String, rightTitle: String, buttonsFont: UIFont, buttonsTitleColor: UIColor, buttonsBackgroundColor: UIColor, buttonsSelectedFont: UIFont, buttonsSelectedTitleColor: UIColor, buttonsSelectedBackgroundColor: UIColor, spacingBetweenButtons: CGFloat = 40.0, provider: TabDoubleSelectionTableCellProvider?, actions: TabDoubleSelectionTableCellActions?) -> GenericTableCellConfigurator {
+        let item = TabDoubleSelectionTableCellConfigFile(identifier: identifier, leftTitle: leftTitle, rightTitle: rightTitle, buttonsFont: buttonsFont, buttonsTitleColor: buttonsTitleColor, buttonsBackgroundColor: buttonsBackgroundColor, buttonsSelectedFont: buttonsSelectedFont, buttonsSelectedTitleColor: buttonsSelectedTitleColor, buttonsSelectedBackgroundColor: buttonsSelectedBackgroundColor, spacingBetweenButtons: spacingBetweenButtons, provider: provider, actions: actions)
+        return GenericTableCellConfigurator(classType: TabDoubleSelectionTableCell.self, item: item, section: section)
+    }
 }

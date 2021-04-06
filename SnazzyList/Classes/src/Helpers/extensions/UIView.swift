@@ -39,30 +39,30 @@ public extension UIView {
 //        )
 //    }
     
-//    func shake(duration: CFTimeInterval = 0.6) {
-//        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-//        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//        animation.duration = duration
-//        animation.values = [-20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-//        layer.add(animation, forKey: "shake")
-//    }
+    func shake(duration: CFTimeInterval = 0.6) {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = duration
+        animation.values = [-20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
     
-//    func shakeWithColor() {
-//        guard let previousBorderColor = self.layer.borderColor else { return }
-//        self.layer.borderColor = UIColor.dmsCoral.cgColor
-//        shake(duration: 0.4)
-//        animateBorderColor(toColor: previousBorderColor, duration: 1.5)
-//        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-//    }
+    func shakeWithColor() {
+        guard let previousBorderColor = self.layer.borderColor else { return }
+        self.layer.borderColor = UIColor.magenta.withAlphaComponent(0.3).cgColor
+        shake(duration: 0.4)
+        animateBorderColor(toColor: previousBorderColor, duration: 1.5)
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+    }
     
-//    func animateBorderColor(toColor: CGColor, duration: Double) {
-//        let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
-//        animation.fromValue = layer.borderColor
-//        animation.toValue = toColor
-//        animation.duration = duration
-//        layer.add(animation, forKey: "borderColor")
-//        layer.borderColor = toColor
-//    }
+    func animateBorderColor(toColor: CGColor, duration: Double) {
+        let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
+        animation.fromValue = layer.borderColor
+        animation.toValue = toColor
+        animation.duration = duration
+        layer.add(animation, forKey: "borderColor")
+        layer.borderColor = toColor
+    }
     
     func pinEdges(to other: UIView) {
         leadingAnchor.constraint(equalTo: other.leadingAnchor).isActive = true
