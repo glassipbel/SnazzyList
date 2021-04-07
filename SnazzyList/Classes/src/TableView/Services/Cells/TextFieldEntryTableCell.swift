@@ -35,7 +35,9 @@ extension TextFieldEntryTableCell: GenericTableCellProtocol {
         titleTextField.text = configFile.provider?.getTextFieldEntryText(forIdentifier: configFile.identifier)
         titleTextField.font = configFile.titleFont
         titleTextField.textColor = configFile.titleColor
-        titleTextField.placeholder = configFile.placeholder
+        titleTextField.backgroundColor = configFile.backgroundColor
+        titleTextField.setBorder(borderStyle: titleTextField.borderStyle, borderColor: configFile.borderColor)
+        titleTextField.setPlaceholder(placeholder: configFile.placeholder, placeholderFont: configFile.placeholderFont, placeholderColor: configFile.placeholderTextColor)
         titleTextField.layer.cornerRadius = configFile.cornerRadius
         titleTextField.keyboardType = configFile.keyboardType
         titleTextField.autocapitalizationType = configFile.autocapitalizationType
@@ -97,7 +99,11 @@ struct TextFieldEntryTableCellConfigFile {
     let identifier: Any
     let titleFont: UIFont
     let titleColor: UIColor
+    let backgroundColor: UIColor
+    let borderColor: UIColor
     let placeholder: String
+    let placeholderFont: UIFont?
+    let placeholderTextColor: UIColor
     let maxLength: Int?
     let cornerRadius: CGFloat
     let keyboardType: UIKeyboardType
@@ -109,11 +115,15 @@ struct TextFieldEntryTableCellConfigFile {
     weak var provider: TextFieldEntryTableProvider?
     weak var actions: TextFieldEntryTableActions?
     
-    init(identifier: Any, titleFont: UIFont, titleColor: UIColor, placeholder: String, maxLength: Int?, cornerRadius: CGFloat, keyboardType: UIKeyboardType, autocapitalizationType: UITextAutocapitalizationType, autocorrectionType: UITextAutocorrectionType, returnKeyType: UIReturnKeyType, showClearButton: Bool, provider: TextFieldEntryTableProvider?, actions: TextFieldEntryTableActions?) {
+    init(identifier: Any, titleFont: UIFont, titleColor: UIColor, backgroundColor: UIColor, borderColor: UIColor, placeholder: String, placeholderFont: UIFont?, placeholderTextColor: UIColor, maxLength: Int?, cornerRadius: CGFloat, keyboardType: UIKeyboardType, autocapitalizationType: UITextAutocapitalizationType, autocorrectionType: UITextAutocorrectionType, returnKeyType: UIReturnKeyType, showClearButton: Bool, provider: TextFieldEntryTableProvider?, actions: TextFieldEntryTableActions?) {
         self.identifier = identifier
         self.titleFont = titleFont
         self.titleColor = titleColor
+        self.backgroundColor = backgroundColor
+        self.borderColor = borderColor
         self.placeholder = placeholder
+        self.placeholderFont = placeholderFont
+        self.placeholderTextColor = placeholderTextColor
         self.maxLength = maxLength
         self.cornerRadius = cornerRadius
         self.keyboardType = keyboardType

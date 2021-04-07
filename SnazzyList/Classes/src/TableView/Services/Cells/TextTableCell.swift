@@ -10,7 +10,7 @@ import UIKit
 
 /// This cell will fit the cases were you need to show a Text for the user, but it may change depending on something else on the screen, in that case this will be a good fit, because you can pass the text dinamycally and just by reloading the tableview it will be displayed.
 /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/TextTableCell.png?raw=true
-final class TextTableCell: UITableViewCell {
+public final class TextTableCell: UITableViewCell {
     let titleLabel = UILabel(font: .systemFont(ofSize: 17.0, weight: .medium), textColor: .gray, textAlignment: .left)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -33,7 +33,7 @@ final class TextTableCell: UITableViewCell {
 }
 
 extension TextTableCell: GenericTableCellProtocol {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with item: Any) {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with item: Any) {
         guard let configFile = item as? TextTableCellConfigFile else { return }
         guard let type = configFile.provider?.getTextTableText(forIdentifier: configFile.identifier) else { return }
         self.configFile = configFile
@@ -64,7 +64,7 @@ extension TextTableCell: GenericTableCellProtocol {
         layoutIfNeeded()
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let configFile = self.configFile else { return }
         
         configFile.actions?.tapTextTable(forIdentifier: configFile.identifier)
@@ -101,8 +101,8 @@ public enum TextTableCellType {
     case none
 }
 
-struct TextTableCellConfigFile {
-    let identifier: Any
+public struct TextTableCellConfigFile {
+    public let identifier: Any
     let backgroundColor: UIColor
     let leftMargin: CGFloat
     let rightMargin: CGFloat

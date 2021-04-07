@@ -187,12 +187,12 @@ struct SliderTableCellConfigFile {
     let resultNumberFont: UIFont
     let resultNumberColor: UIColor
     let resultUnderlineColor: UIColor
-    let gradientSliderColors: [UIColor]
+    let gradientSliderColors: [CGColor]
     
     weak var provider: SliderTableProvider?
     weak var actions: SliderTableActions?
     
-    init(identifier: Any, isEditable: Bool, leftNumberFont: UIFont, leftNumberColor: UIColor, rightNumberFont: UIFont, rightNumberColor: UIColor, resultNumberFont: UIFont, resultNumberColor: UIColor, resultUnderlineColor: UIColor, gradientSliderColors: [UIColor], provider: SliderTableProvider?, actions: SliderTableActions?) {
+    init(identifier: Any, isEditable: Bool, leftNumberFont: UIFont, leftNumberColor: UIColor, rightNumberFont: UIFont, rightNumberColor: UIColor, resultNumberFont: UIFont, resultNumberColor: UIColor, resultUnderlineColor: UIColor, gradientSliderColors: [CGColor], provider: SliderTableProvider?, actions: SliderTableActions?) {
         self.identifier = identifier
         self.isEditable = isEditable
         self.leftNumberFont = leftNumberFont

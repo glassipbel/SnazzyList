@@ -10,8 +10,8 @@ import UIKit
 
 /// This cell will fit the cases were you need to show a button that it will always be enabled. If that's the case then this will be a good fit, if the button can be dynamically change from enable to disable depending on the context, then you should take a look at ComplexButtonTableCell.
 /// Screenshot: https://github.com/datamindedsolutions/noteworth-ios-documentation/blob/master/TableView%20Shared%20Cells/BasicButtonTableCell.png?raw=true
-final class BasicButtonTableCell: UITableViewCell {
-    let mainButton = UIButton(font: .systemFont(ofSize: 16.0, weight: .bold), titleColor: .white, title: "", backgroundColor: .blue)
+public final class BasicButtonTableCell: UITableViewCell {
+    public let mainButton = UIButton(font: .systemFont(ofSize: 16.0, weight: .bold), titleColor: .white, title: "", backgroundColor: .blue)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,7 +31,7 @@ final class BasicButtonTableCell: UITableViewCell {
 }
 
 extension BasicButtonTableCell: GenericTableCellProtocol {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with item: Any) {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath, with item: Any) {
         guard let configFile = item as? BasicButtonTableCellConfigFile else { return }
         
         if let previousConfigFile = self.configFile {
