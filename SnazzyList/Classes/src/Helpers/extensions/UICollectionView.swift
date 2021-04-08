@@ -9,7 +9,7 @@
 import UIKit
 
 extension UICollectionView {
-    static func getDefault(adjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic, direction: UICollectionView.ScrollDirection = .vertical, itemSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, pinHeader: Bool = false, alwaysBounceVertical: Bool = true, contentInset: UIEdgeInsets = .zero, isPagingEnabled: Bool = false) -> UICollectionView {
+    public static func getDefault(adjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic, direction: UICollectionView.ScrollDirection = .vertical, itemSpacing: CGFloat = 0, lineSpacing: CGFloat = 0, pinHeader: Bool = false, alwaysBounceVertical: Bool = true, contentInset: UIEdgeInsets = .zero, isPagingEnabled: Bool = false) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = direction
         layout.minimumInteritemSpacing = itemSpacing

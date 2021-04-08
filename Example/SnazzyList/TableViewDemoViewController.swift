@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TableViewDemoViewController.swift
 //  SnazzyList
 //
 //  Created by Santiago Apaza on 03/09/2021.
@@ -9,7 +9,7 @@ import SnazzyList
 import SnazzyAccessibility
 import UIKit
 
-class ViewController: UIViewController {
+class TableViewDemoViewController: UIViewController {
     private(set) var tableView = UITableView.getDefault()
     
     private var datasource: GenericTableViewDataSource!
@@ -60,42 +60,42 @@ class ViewController: UIViewController {
         
         configFiles.append(controller.getSpacingTableCellConfigFile(height: 50.0, section: 0, lineColor: .green, backgroundColor: .blue, leftMargin: 0.0, rightMargin: 0.0))
         configFiles.append(controller.getTextTableCellConfigFile(section: 0, identifier: 1, backgroundColor: .clear, leftMargin: 0.0, rightMargin: 0.0, topMargin: 0.0, bottomMargin: 0.0, provider: self, actions: nil) )
-        configFiles.append(controller.getTextFieldEntryTableCellConfigFile(section: 0, identifier: 2, titleFont: .systemFont(ofSize: 12.0, weight: .regular), titleColor: .green, placeholder: "Thats all...", maxLength: nil, cornerRadius: 10.0, keyboardType: .alphabet, autocapitalizationType: .allCharacters, autocorrectionType: .no, returnKeyType: .default, showClearButton: true, provider: nil, actions: nil))
-        configFiles.append(controller.getBasicButtonTableCell(section: 0, title: "boton basico", textColor: .blue, backgroundColor: .black, target: nil, action: #selector(helloWorld), underline: false, font: .systemFont(ofSize: 12.0, weight: .regular), leftMargin: 0.0, rightMargin: 0.0, buttonHeight: 40.0, accessibilityInfo: nil))
+        configFiles.append(controller.getTextFieldEntryTableCellConfigFile(section: 0, identifier: 2, titleFont: .systemFont(ofSize: 12.0, weight: .regular), titleColor: .green, backgroundColor: .gray, borderColor: .darkGray, placeholder: "Write here", placeholderFont: nil, placeholderTextColor: .lightGray, maxLength: nil, cornerRadius: 10.0, keyboardType: .alphabet, autocapitalizationType: .allCharacters, autocorrectionType: .no, returnKeyType: .default, showClearButton: true, provider: nil, actions: nil))
+        configFiles.append(controller.getBasicButtonTableCell(section: 0, title: "Basic Button", textColor: .blue, backgroundColor: .black, target: nil, action: #selector(tapOnHelloWorld), underline: false, font: .systemFont(ofSize: 12.0, weight: .regular), leftMargin: 0.0, rightMargin: 0.0, buttonHeight: 40.0, accessibilityInfo: nil))
         configFiles.append(controller.getBasicCheckTableCellConfigFile(section: 0, identifier: 8, isEditable: true, checkedTitleFont: .systemFont(ofSize: 12.0, weight: .bold), uncheckedTitleFont: .systemFont(ofSize: 10.0, weight: .regular), titleColor: .red, checkedIcon: nil, uncheckedIcon: nil, provider: self, actions: self))
-        configFiles.append(controller.getBasicTitleTableCellConfigFile(section: 0, identifier: 11, title: "basic title", attributedTitle: nil, font: .systemFont(ofSize: 12.0, weight: .bold), titleColor: .blue, textAlignment: .center, numberOfLines: 0, backgroundColor: .gray, leftMargin: 0, rightMargin: 0, topMargin: 0, bottomMargin: 0, customLineSpacing: nil, accessibilityInfo: nil, actions: nil))
+        configFiles.append(controller.getBasicTitleTableCellConfigFile(section: 0, identifier: 11, title: "Basic title", attributedTitle: nil, font: .systemFont(ofSize: 12.0, weight: .bold), titleColor: .blue, textAlignment: .center, numberOfLines: 0, backgroundColor: .gray, leftMargin: 0, rightMargin: 0, topMargin: 0, bottomMargin: 0, customLineSpacing: nil, accessibilityInfo: nil, actions: nil))
         
         datasource.configFiles = configFiles
         datasource.reload()
     }
     
-    @objc func helloWorld() {
-        print("hello world")
+    @objc func tapOnHelloWorld() {
+        print("Hello!!!, this is Snazzy List")
     }
 }
 
-extension ViewController: GenericTableActions {
+extension TableViewDemoViewController: GenericTableActions {
     
 }
 
-extension ViewController: TextTableProvider {
+extension TableViewDemoViewController: TextTableProvider {
     func getTextTableText(forIdentifier identifier: Any) -> TextTableCellType {
-        return .normal(text: "Hola Mundo", font: .systemFont(ofSize: 16.0, weight: .bold), titleColor: .red, textAlignment: .center)
+        return .normal(text: "Snazzy List Text Table Cell", font: .systemFont(ofSize: 16.0, weight: .regular), titleColor: .blue, textAlignment: .justified)
     }
 }
 
-extension ViewController: BasicCheckTableProvider {
+extension TableViewDemoViewController: BasicCheckTableProvider {
     func getCheckIsChecked(forIdentifier identifier: Any) -> Bool {
-        true
+        return true
     }
     
     func getCheckTitle(forIdentifier identifier: Any) -> String {
-        "Check Title"
+        "Basic Check Component"
     }
 }
 
-extension ViewController: BasicCheckTableActions {
+extension TableViewDemoViewController: BasicCheckTableActions {
     func tapOnCheck(forIdentifier identifier: Any) {
-        print("checked")
+        print("tapped on check")
     }
 }

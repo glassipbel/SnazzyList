@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GyC-AB-LdP">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="SkZ-4r-fI5">
+            <objects>
+                <viewController id="GyC-AB-LdP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VbC-uQ-zFy"/>
+                        <viewControllerLayoutGuide type="bottom" id="w4b-Ai-wVp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QUj-6R-NpU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCm-c6-XC2">
+                                <rect key="frame" x="16" y="278.5" width="343" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eST-DE-XCR">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fJH-82-rkw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Table view cells"/>
+                                        <connections>
+                                            <segue destination="vXZ-lx-hvc" kind="show" id="VFT-CR-Kio"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-PE-I2B">
+                                        <rect key="frame" x="0.0" y="60" width="343" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="a6P-UT-LX7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                        <state key="normal" title="Collection View Cells"/>
+                                        <connections>
+                                            <segue destination="j4z-qU-qBO" kind="show" id="GDW-WM-HK7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eST-DE-XCR" secondAttribute="trailing" id="7u9-Mm-dpv"/>
+                                    <constraint firstItem="0C9-PE-I2B" firstAttribute="leading" secondItem="TCm-c6-XC2" secondAttribute="leading" id="Dkk-AY-7Dw"/>
+                                    <constraint firstItem="eST-DE-XCR" firstAttribute="top" secondItem="TCm-c6-XC2" secondAttribute="top" id="RRd-uq-bCT"/>
+                                    <constraint firstItem="eST-DE-XCR" firstAttribute="leading" secondItem="TCm-c6-XC2" secondAttribute="leading" id="Zm8-HI-YrT"/>
+                                    <constraint firstItem="0C9-PE-I2B" firstAttribute="top" secondItem="eST-DE-XCR" secondAttribute="bottom" constant="10" id="iCG-vn-Tv2"/>
+                                    <constraint firstAttribute="trailing" secondItem="0C9-PE-I2B" secondAttribute="trailing" id="xe8-47-8FR"/>
+                                    <constraint firstAttribute="bottom" secondItem="0C9-PE-I2B" secondAttribute="bottom" id="y6o-Sl-VDB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TCm-c6-XC2" firstAttribute="centerY" secondItem="QUj-6R-NpU" secondAttribute="centerY" id="GHA-WM-8Yo"/>
+                            <constraint firstItem="TCm-c6-XC2" firstAttribute="leading" secondItem="QUj-6R-NpU" secondAttribute="leading" constant="16" id="lqG-wD-03k"/>
+                            <constraint firstAttribute="trailing" secondItem="TCm-c6-XC2" secondAttribute="trailing" constant="16" id="z0c-ui-8hp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhj-Xb-Hmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-562.39999999999998" y="269.41529235382313"/>
+        </scene>
+        <!--Collection View Demo View Controller-->
+        <scene sceneID="pXk-M5-Hsr">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="j4z-qU-qBO" customClass="CollectionViewDemoViewController" customModule="SnazzyList_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UJO-fR-aVL"/>
+                        <viewControllerLayoutGuide type="bottom" id="cV3-dL-xmm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eLy-sZ-Mzo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fst-1R-YmF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D7g-7B-Bwm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="648"/>
+        </scene>
+        <!--Table View Demo View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="SnazzyList_Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="vXZ-lx-hvc" customClass="TableViewDemoViewController" customModule="SnazzyList_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -22,9 +102,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0Ky-mz-65B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="284" y="-1"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
