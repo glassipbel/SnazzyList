@@ -15,7 +15,7 @@ enum BoundsType {
     case full
 }
 
-extension UIView {
+public extension UIView {
     convenience init(backgroundColor: UIColor) {
         self.init()
         self.backgroundColor = backgroundColor
@@ -23,21 +23,21 @@ extension UIView {
         self.clipsToBounds = true
     }
     
-    func zoom(duration: CFTimeInterval = 0.5, by: CGFloat = 1.15) {
-        UIView.animate(
-            withDuration: duration - 0.2,
-            delay: 0.0,
-            options: UIView.AnimationOptions.curveEaseIn,
-            animations: { [weak self] in
-                self?.transform = CGAffineTransform.identity.scaledBy(x: by, y: by)
-            }, completion: { finished in
-                if !finished { return }
-                UIView.animate(withDuration: 0.2) { [weak self] in
-                    self?.transform = CGAffineTransform.identity
-                }
-            }
-        )
-    }
+//    func zoom(duration: CFTimeInterval = 0.5, by: CGFloat = 1.15) {
+//        UIView.animate(
+//            withDuration: duration - 0.2,
+//            delay: 0.0,
+//            options: UIView.AnimationOptions.curveEaseIn,
+//            animations: { [weak self] in
+//                self?.transform = CGAffineTransform.identity.scaledBy(x: by, y: by)
+//            }, completion: { finished in
+//                if !finished { return }
+//                UIView.animate(withDuration: 0.2) { [weak self] in
+//                    self?.transform = CGAffineTransform.identity
+//                }
+//            }
+//        )
+//    }
     
     func shake(duration: CFTimeInterval = 0.6) {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
@@ -47,13 +47,13 @@ extension UIView {
         layer.add(animation, forKey: "shake")
     }
     
-//    func shakeWithColor() {
-//        guard let previousBorderColor = self.layer.borderColor else { return }
-//        self.layer.borderColor = UIColor.dmsCoral.cgColor
-//        shake(duration: 0.4)
-//        animateBorderColor(toColor: previousBorderColor, duration: 1.5)
-//        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-//    }
+    func shakeWithColor() {
+        guard let previousBorderColor = self.layer.borderColor else { return }
+        self.layer.borderColor = UIColor.magenta.withAlphaComponent(0.3).cgColor
+        shake(duration: 0.4)
+        animateBorderColor(toColor: previousBorderColor, duration: 1.5)
+        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+    }
     
     func animateBorderColor(toColor: CGColor, duration: Double) {
         let animation:CABasicAnimation = CABasicAnimation(keyPath: "borderColor")
@@ -81,7 +81,7 @@ extension UIView {
     }
     
     @available(iOS 11.0, *)
-    func bindFrameToSafeLayoutArea(withConstant constant: CGFloat, boundType: BoundsType) {
+    internal func bindFrameToSafeLayoutArea(withConstant constant: CGFloat, boundType: BoundsType) {
         guard let superView = self.superview else {
             print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
             return
@@ -105,7 +105,7 @@ extension UIView {
     func getTopAnchor() -> NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.topAnchor
-        }else{
+        } else {
             return self.topAnchor
         }
     }
@@ -113,7 +113,7 @@ extension UIView {
     func getBottomAnchor() -> NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.bottomAnchor
-        }else{
+        } else {
             return self.bottomAnchor
         }
     }
@@ -121,7 +121,7 @@ extension UIView {
     func getRightAnchor() -> NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.rightAnchor
-        }else{
+        } else {
             return self.rightAnchor
         }
     }
@@ -129,7 +129,7 @@ extension UIView {
     func getLeftAnchor() -> NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.leftAnchor
-        }else{
+        } else {
             return self.leftAnchor
         }
     }
@@ -148,7 +148,7 @@ extension UIView {
         return 0.0
     }
     
-    func bindFrameToSuperviewBounds(withConstant constant: CGFloat, boundType: BoundsType) {
+    internal func bindFrameToSuperviewBounds(withConstant constant: CGFloat, boundType: BoundsType) {
         guard let superView = self.superview else {
             print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
             return
@@ -169,7 +169,7 @@ extension UIView {
         }
     }
     
-    func bind(withConstant constant: CGFloat, boundType: BoundsType) {
+    internal func bind(withConstant constant: CGFloat, boundType: BoundsType) {
         if #available(iOS 11.0, *) {
             self.bindFrameToSafeLayoutArea(withConstant: constant, boundType: boundType)
         }else{
@@ -177,7 +177,7 @@ extension UIView {
         }
     }
     
-    func bindFrameGreaterOrEqualToSuperviewBounds(withConstant constant: CGFloat, boundType: BoundsType) {
+    internal func bindFrameGreaterOrEqualToSuperviewBounds(withConstant constant: CGFloat, boundType: BoundsType) {
         guard let superView = self.superview else {
             print("Error! `superview` was nil – call `addSubview(view: UIView)` before calling `bindFrameToSuperviewBounds()` to fix this.")
             return

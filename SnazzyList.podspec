@@ -23,5 +23,8 @@ Pod::Spec.new do |s|
   s.swift_versions = '5.0'
   s.source_files = 'SnazzyList/Classes/**/*'
   s.frameworks = 'UIKit'
-  s.dependency 'SnazzyAccessibility', '0.1.4'
+  s.dependency 'SnazzyAccessibility'
+  s.dependency 'KMPlaceholderTextView'
+  s.resources = "SnazzyList/Assets/*.xcassets"
+  s.resource_bundles = { 'SnazzyList' => ['SnazzyList/**/*.{xcassets}'] }
 end
